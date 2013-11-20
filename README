@@ -1,0 +1,37 @@
+Ahuge Tools currently supports versions of nuke 6.3v4 and up but as tools are created I may end up needing to drop support for older versions
+
+
+
+    # ---- Installation ---- #
+
+Included with each build will be a menu.py and an init.py
+These are meant to make it easy to import the tools and scripts.
+
+
+
+    Windows
+
+For installation on Windows, place the menu.py, init.py and the Ahuge Tools folder in "C:\Users\yourName\.nuke"
+If you have moved your User directory to another drive, replace the "C" with the appropriate drive letter
+
+
+	Mac
+
+On Mac OSX the .nuke directory is hidden. You can open it using the following command in the terminal:
+"open /Users/username/.nuke"
+once in this folder, you can copy the menu.py, init.py and the Ahuge Tools folder into it
+
+
+	Linux
+
+On Linux the .nuke directory is usually "/home/username/.nuke"
+once you've found this folder, you can copy the menu.py, init.py and the Ahuge Tools folder into it
+
+
+    Restarting Nuke will reload the plugins and add them to your copy of nuke.
+	
+	
+	
+    # ---- Bugs, Questions, Suggestions ---- #
+	
+If you ever have any concerns or suggestions please feel free to email me at ahuglesalex(at)gmail.com
