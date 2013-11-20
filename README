@@ -2,6 +2,11 @@ Ahuge Tools currently supports versions of nuke 6.3v4 and up but as tools are cr
 
 
 
+	# ---- Notes ---- #
+
+Any package will work on versions of Nuke that are higher than it, in the future they may be missing features though
+
+
     # ---- Installation ---- #
 
 Included with each build will be a menu.py and an init.py
