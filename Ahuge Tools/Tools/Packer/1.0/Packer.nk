@@ -1,0 +1,104 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+add_layer {test test.red test.green test.blue test.alpha test.matte}
+Group {
+name ChannelPacker
+help "Created 2013 by Alex Hughes\ngo to www.ahuge.ca for updates and other tools"
+tile_color 0x7500ffff
+gl_color 0xff00ff
+selected true
+xpos 311
+ypos -1121
+addUserKnob {20 Channels}
+addUserKnob {41 ChannelGroup l "New Channel Group" t "This is the new channel group that the shapes will be put into" T ShuffleCopy1.in}
+addUserKnob {26 para l "" +STARTLINE T <p>}
+addUserKnob {26 para2 l "" +STARTLINE T <p>}
+addUserKnob {26 break_1 l "" +STARTLINE T <br>}
+addUserKnob {26 break l "" +STARTLINE T <br>}
+addUserKnob {26 ""}
+addUserKnob {26 Version l "" +STARTLINE T "Version 1.0"}
+addUserKnob {26 CopyLeft l "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;" -STARTLINE T " "}
+}
+Input {
+inputs 0
+name C
+xpos 32
+ypos 83
+number 1
+}
+Input {
+inputs 0
+name A
+selected true
+xpos 165
+ypos -61
+number 3
+}
+Input {
+inputs 0
+name B
+xpos 28
+number 2
+}
+ShuffleCopy {
+inputs 2
+in alpha
+in2 alpha
+red black
+green black
+blue black
+alpha black
+black red
+red2 black
+green2 black
+out2 {{{parent.ShuffleCopy1.in}}}
+name ShuffleCopy2
+xpos 165
+}
+ShuffleCopy {
+inputs 2
+in alpha
+in2 {{{parent.ShuffleCopy1.in}}}
+red black
+green black
+blue black
+alpha black
+red2 red
+out2 {{{parent.ShuffleCopy1.in}}}
+name ShuffleCopy4
+xpos 165
+ypos 83
+}
+Input {
+inputs 0
+name Plate
+xpos 276
+ypos 15
+}
+ShuffleCopy {
+inputs 2
+in test
+black red
+white green
+red2 blue
+green2 alpha
+out2 {{{in}}}
+name ShuffleCopy1
+xpos 276
+ypos 83
+}
+set Nf8d0aaf0 [stack 0]
+Output {
+name Output1
+xpos 276
+ypos 183
+}
+push $Nf8d0aaf0
+Viewer {
+input_process false
+name Viewer1
+xpos 156
+ypos 217
+}
+end_group

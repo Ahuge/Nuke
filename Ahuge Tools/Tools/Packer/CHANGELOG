@@ -1,0 +1,26 @@
+    # ---- CHANGELOG ---- #
+	
+	Tool Name:					Packer.nk
+	Current Version : 			1.1
+
+	Notable additions:
+								Packer now has an option to copy the alpha from A,B,C into the tree's RGBA.alpha channel
+	Known Bugs:
+								None
+	Planned Updates:
+								Merge into Roto Output Node
+	Notes:
+								Version 1.1 is the first version in the GitHub package
+								
+    # ---- PREVIOUS VERSIONS ---- #
+	
+	Current Version : 			1.0
+	Tool Name:					Packer.nk
+	Notable additions:
+								Everything
+	Known Bugs:
+								None
+	Planned Updates:
+								Merge into Roto Output Node
+	Notes:
+								OMG THIS IS SO COOL
