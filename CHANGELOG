@@ -1,0 +1,23 @@
+    # ---- CHANGELOG ---- #
+	
+	Current Version : 1.0
+	Tool List:					
+								ErodeBlur - v1.1
+								Packer - v1.1
+								Paintout - v1.0
+								PointsTo3D - v1.0
+								Saturation - v1.0
+								WriteFix - 1.0
+	Notable additions:
+								Everything
+	Known Bugs:
+								None
+	Planned Updates:
+								Add Roto Output node
+								Add Backdrop script
+								Add Documentation
+	Notes:
+								Planning on making this useful.
+								Slowly migrating everything into a universal package.
+								
+    # ---- PREVIOUS VERSIONS ---- #

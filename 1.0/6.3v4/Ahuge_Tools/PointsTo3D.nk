@@ -1,0 +1,22 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+PointsTo3D {
+name PointsTo3D
+tile_color 0x7500ffff
+label "\[value GeoPick]"
+selected true
+xpos 363
+ypos -1018
+addUserKnob {20 GenerateTab l Generate}
+addUserKnob {26 GenerateGeoText l "" +STARTLINE T "<h2> Generate Geometry </h2>"}
+addUserKnob {26 p l "" -STARTLINE T <p>}
+addUserKnob {26 ""}
+addUserKnob {26 GeoType l "" -STARTLINE T "<h4>Geometry Type</h4>"}
+addUserKnob {68 GeoPick l "" +STARTLINE M {Card Axis Sphere Cube Cylinder "" ""}}
+addUserKnob {22 Create l Generate -STARTLINE T "this = nuke.thisNode()\nChoose = this.knob('GeoPick').value()\npointsThreeDee = this.knob('point3d')\nXTrans = pointsThreeDee.value(0)\nYTrans = pointsThreeDee.value(1)\nZTrans = pointsThreeDee.value(2)\n\nnuke.createNode(\"%s\" % (Choose), inpanel=False)\nCardSel = nuke.selectedNode()\nCardSel\['translate'].setValue(XTrans, 0)\nCardSel\['translate'].setValue(YTrans, 1)\nCardSel\['translate'].setValue(ZTrans, 2)"}
+addUserKnob {26 break l "" +STARTLINE T "<br>\n<br>\n<br>\n<br>\n<br>\n<br>\n"}
+addUserKnob {26 ""}
+addUserKnob {26 Version l "" +STARTLINE T "Version 1.0"}
+addUserKnob {26 CopyLeft l "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;" -STARTLINE T ""}
+}
