@@ -1,7 +1,9 @@
     # ---- CHANGELOG ---- #
 	
-	Tool Name: 					WriteFix.py
-	Current Version : 			1.1
+	Tool Name: 					
+								WriteFix.py
+	Current Version : 			
+								1.1
 
 	Notable additions:
 								Removed pipeline specific code used at previous company
@@ -14,8 +16,10 @@
 								
     # ---- PREVIOUS VERSIONS ---- #
 	
-	Tool Name: 					WriteFix.py
-	Current Version : 			1.0
+	Tool Name: 					
+								WriteFix.py
+	Current Version : 			
+								1.0
 
 	Notable additions:
 								Autoname your write nodes based on your script's name

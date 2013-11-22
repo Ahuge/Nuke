@@ -1,0 +1,402 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push 0
+push $cut_paste_input
+add_layer {test test.matte test.red test.green test.blue test.alpha}
+Group {
+ inputs 2
+ name Roto_Output
+ help "Created 2013 by Alex Hughes\ngo to www.ahuge.ca for updates and other tools"
+ tile_color 0x7900ffff
+ label "\[value out]\n\[set theState \[value OverlayCheck.which]\nif \{\$theState== 0\} \{set theText \"Original\" \} elseif \{\$theState== 1\} \{set theText \"Animation\"\} elseif \{\$theState== 2\} \{set theText \"Overlay\"\} elseif \{\$theState== 3\} \{set theText \"Grey Matte\"\} elseif \{\$theState== 4\} \{set theText \"Combined Output\"\}]"
+ selected true
+ xpos 270
+ ypos 87
+ addUserKnob {20 User l Settings}
+ addUserKnob {68 ChoiceMenu l Output M {Original Animiation Overlay "Grey Matte" Combined ""}}
+ addUserKnob {6 AlphOutput l "Preserve Alpha" +STARTLINE}
+ AlphOutput true
+ addUserKnob {26 ""}
+ addUserKnob {26 OverlayTitle l "" +STARTLINE T "<B>\n<t3>\nOverlay Controls \n<br>"}
+ addUserKnob {41 multiply l "Roto Colour" T Grade2.multiply}
+ addUserKnob {41 mix T Merge2.mix}
+ addUserKnob {41 out l "Roto Channel" T ShuffleCopy2.out}
+ addUserKnob {26 ""}
+ addUserKnob {26 GreymatteTitle l "" +STARTLINE T "<B>\n<T3>\nGreyMatte Controls\n<br>"}
+ addUserKnob {41 color l "BG Colour" T Constant1.color}
+ addUserKnob {26 ""}
+ addUserKnob {26 CombinedTitle l "" +STARTLINE T "<B>\n<T3>\nCombined Output Controls\n<br>"}
+ addUserKnob {3 MatteSwitch}
+ addUserKnob {22 PySetFrame l "Set to this frame" -STARTLINE T "this = nuke.thisNode() \nthis.knob('MatteSwitch').setValue(nuke.frame()) "}
+ addUserKnob {26 BreakText1_3 l "" +STARTLINE T <br>}
+ addUserKnob {20 InstructionsTab l Instructions}
+ addUserKnob {26 InstructionsText l "" +STARTLINE T "<ol>\n<li><B><H3>Overlay</H3></B>\n<ul><li>Set the color in the 'Roto Color' line, and create\n<br>\na new layer by selecting 'new' in the 'Roto Channel' \n<br>\ndrop down and naming the 'Name' as the name of \n<br>\nthe roto and the first line of 'Channels' as 'matte'</l></ul>\n</li>\n\n<li><B><H3>Grey Matte</H3></B>\n<ul><li>The BG Colour slider will change the colour of the backdrop\n<br>\n\t upon which the roto'd area will be placed over</l></ul>\n</li>\n\n<li><B><H3>Combined</H3></B>\n<ul><li>\tTo use the Overlay and Grey Matte combine feature you should go to the last frame\n\t<br>\n\t when roto was needed and press the \"Set to the frame\" button. \n\t<br>\n\t\n\t<br>\n\t Alternatively, in Version 1.4.2 and above\n\t<br>\n\t you can simply type your frame number in the box \n\t<br>\n\t</ul>\n</li>\n</ol>"}
+ addUserKnob {26 blanktext l "" +STARTLINE}
+ addUserKnob {26 Version l "" +STARTLINE T "Version 1.4.3"}
+ addUserKnob {26 CopyLeft l "&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;&#160;&#160;&#160;" -STARTLINE T " "}
+}
+ Input {
+  inputs 0
+  name Plate
+  xpos -810
+  ypos -81
+ }
+set Nef701180 [stack 0]
+ Dot {
+  name Dot17
+  xpos -556
+  ypos -78
+ }
+add_layer {Background Background.red Background.green Background.blue Background.alpha}
+ Shuffle {
+  in Background
+  in2 rgba
+  alpha white
+  black black
+  white black
+  red2 black
+  green2 black
+  out Background
+  out2 rgba
+  name Shuffle5
+  label "\[value in]"
+  xpos -590
+  ypos -39
+ }
+push $Nef701180
+ Dot {
+  name Dot16
+  xpos -776
+  ypos 18
+ }
+ Shuffle {
+  black red
+  white green
+  red2 blue
+  green2 alpha
+  out2 Background
+  name Shuffle3
+  label "\[value in]"
+  xpos -700
+  ypos 9
+ }
+ Merge2 {
+  inputs 2
+  Achannels Background
+  Bchannels Background
+  output Background
+  name Merge1
+  xpos -590
+  ypos 9
+  disable {{"\[python -execlocal if\\ nuke.thisParent().dependencies()\\ is\\ list:\\n\\ \\ \\ \\ tree\\ =\\ nuke.thisParent().dependencies()\\\[0\\].knob('ChoiceMenu').value()\\n\\ \\ \\ \\ if\\ tree\\ ==\\ 'Grey\\ Matte':\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ ret\\ =\\ 0\\n\\ \\ \\ \\ else:\\n\\ \\ \\ \\ \\ \\ \\ \\ ret\\ =\\ 1\\nelse:\\n\\ \\ \\ \\ ret\\ =\\ 1]"}}
+ }
+set Nef7022b0 [stack 0]
+ Dot {
+  name Dot18
+  xpos 104
+  ypos 18
+ }
+ Dot {
+  name Dot19
+  xpos 104
+  ypos 882
+ }
+ Input {
+  inputs 0
+  name Roto
+  xpos -260
+  ypos 231
+  number 1
+ }
+set N411e0790 [stack 0]
+ Dot {
+  name Dot21
+  xpos -390
+  ypos 234
+ }
+set N411e0b00 [stack 0]
+ Dot {
+  name Dot11
+  xpos -996
+  ypos 234
+ }
+ Dot {
+  name Dot13
+  xpos -996
+  ypos 522
+ }
+push $Nef7022b0
+ Dot {
+  name Dot15
+  xpos -556
+  ypos 138
+ }
+set N411e1550 [stack 0]
+ Dot {
+  name Dot7
+  xpos -776
+  ypos 138
+ }
+set N411e18c0 [stack 0]
+ Dot {
+  name Dot12
+  xpos -886
+  ypos 138
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy1
+  label "\[value in] -> \[value out]"
+  xpos -920
+  ypos 513
+ }
+ Reformat {
+  type scale
+  scale 0.25
+  name Reformat1
+  xpos -920
+  ypos 567
+ }
+ Dot {
+  name Dot14
+  xpos -886
+  ypos 834
+ }
+push $N411e1550
+ Dot {
+  name Dot6
+  xpos -336
+  ypos 138
+ }
+set N411e29f0 [stack 0]
+ Dot {
+  name Dot10
+  xpos -31
+  ypos 138
+ }
+push $N411e0790
+ ChannelMerge {
+  inputs 2
+  name ChannelMerge1
+  xpos -65
+  ypos 219
+ }
+ Dot {
+  name Dot3
+  xpos -31
+  ypos 330
+ }
+set N411e3440 [stack 0]
+ Dot {
+  name Dot20
+  xpos -31
+  ypos 450
+ }
+set N411e37b0 [stack 0]
+ Dot {
+  name Dot9
+  xpos -31
+  ypos 786
+ }
+push $N411e0b00
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle6
+  label "\[value in]"
+  xpos -424
+  ypos 273
+ }
+ Dot {
+  name Dot2
+  xpos -390
+  ypos 330
+ }
+set Nad9eabd0 [stack 0]
+ Dot {
+  name Dot4
+  xpos -390
+  ypos 409
+ }
+push $Nad9eabd0
+ Grade {
+  multiply {1 0 0 1}
+  black_clamp false
+  name Grade2
+  xpos -480
+  ypos 327
+ }
+push $N411e1550
+ Merge2 {
+  inputs 2
+  mix 0.18
+  name Merge2
+  xpos -590
+  ypos 327
+ }
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green green
+  blue blue
+  out test
+  name ShuffleCopy2
+  label "\[value in] -> \[value out]"
+  xpos -590
+  ypos 400
+ }
+set Nad9eb990 [stack 0]
+push $N411e3440
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle1
+  label "\[value in]"
+  xpos -260
+  ypos 321
+ }
+push $N411e37b0
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy3
+  xpos -260
+  ypos 441
+ }
+push $N411e29f0
+ Shuffle {
+  in Background
+  name Shuffle4
+  label "\[value in]"
+  xpos -370
+  ypos 441
+ }
+ Dot {
+  name Dot5
+  xpos -336
+  ypos 522
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 0.18
+  name Constant1
+  xpos -150
+  ypos 557
+ }
+ Keymix {
+  inputs 3
+  channels rgba
+  name Keymix1
+  xpos -260
+  ypos 581
+ }
+set Nd90dde90 [stack 0]
+ TimeOffset {
+  time_offset {{(parent.MatteSwitch*2)+2}}
+  reverse_input true
+  name TimeOffset1
+  xpos -428
+  ypos 581
+ }
+ Switch {
+  inputs 2
+  which {{"\[python -execlocal import\\ nuke\\ncurrentframe\\ =\\ nuke.frame()\\nthis\\ =\\ nuke.thisNode()\\nparent\\ =\\ nuke.thisParent().knob('MatteSwitch').value()\\n\\nif\\ currentframe\\ <\\ parent:\\n\\ \\ \\ value\\ =\\ 1\\nelif\\ currentframe\\ >=\\ parent:\\n\\ \\ \\ value\\ =\\ 0\\nret\\ =\\ value]"}}
+  name Switch1
+  xpos -590
+  ypos 581
+ }
+ FrameRange {
+  first_frame 1
+  last_frame {{(parent.MatteSwitch)*2}}
+  name FrameRange1
+  xpos -590
+  ypos 615
+ }
+push $Nd90dde90
+ FrameRange {
+  last_frame {{root.last_frame}}
+  name FrameRange2
+  xpos -260
+  ypos 663
+ }
+push $Nad9eb990
+ Dot {
+  name Dot1
+  xpos -666
+  ypos 409
+ }
+push $N411e18c0
+ Dot {
+  name Dot8
+  xpos -776
+  ypos 666
+ }
+set Nd90de570 [stack 0]
+push $Nd90de570
+ Switch {
+  inputs 5
+  which {{parent.ChoiceMenu}}
+  name OverlayCheck
+  xpos -700
+  ypos 663
+ }
+ Shuffle {
+  alpha black
+  name Shuffle2
+  label "\[value in]"
+  xpos -700
+  ypos 716
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  mix {{AlphOutput i}}
+  name Copy1
+  xpos -700
+  ypos 777
+ }
+ Switch {
+  inputs 2
+  which {{"\[set Anim \[value OverlayCheck.which]\nif \{\$Anim== 1\} \{set which 1 \} else \{set which 0 \} ]"}}
+  name Switch2
+  xpos -700
+  ypos 831
+ }
+ Copy {
+  inputs 2
+  from0 Background.red
+  to0 Background.red
+  from1 Background.green
+  to1 Background.green
+  from2 Background.blue
+  to2 Background.blue
+  from3 Background.alpha
+  to3 Background.alpha
+  name Copy2
+  xpos -700
+  ypos 855
+ }
+ Output {
+  name Output1
+  xpos -700
+  ypos 951
+ }
+ Output {
+  name Output2
+  xpos -700
+  ypos 982
+ }
+push $Nef7022b0
+ Viewer {
+  input_process false
+  name Viewer1
+  selected true
+  xpos -661
+  ypos 105
+ }
+end_group

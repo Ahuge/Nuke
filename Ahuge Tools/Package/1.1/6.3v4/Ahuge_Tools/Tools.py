@@ -17,7 +17,7 @@ def FrameHoldMe():
 	
 def P3D():
 	nuke.loadToolset("Ahuge_Tools/PointsTo3D.nk"	)
-	
+
 import random
 def autoBackdropCustom():
   # Copyright (c) 2009 The Foundry Visionmongers Ltd.  All Rights Reserved.
@@ -58,7 +58,9 @@ def CreateBackdrop():
 	import random
 	for i in nuke.selectedNodes():
 		if i.Class() == "BackdropNode":
-			i['tile_color'].setValue(int(random.randint(100000,699999999)))
+			fColour = [random.random(), random.random(), random.random(), random.random()]
+			hColour = int('%02x%02x%02x%02x' % (fColour[0]*255,fColour[1]*255,fColour[2]*255,fColour[3]),16) 
+			i['tile_color'].setValue(hColour)
 			break
 		else:
 				FaceBook = nuke.getInput('Name?')

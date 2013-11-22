@@ -1,7 +1,9 @@
     # ---- CHANGELOG ---- #
 	
-	Tool Name:					Packer.nk
-	Current Version : 			1.1
+	Tool Name:					
+								Packer.nk
+	Current Version : 			
+								1.1
 
 	Notable additions:
 								Packer now has an option to copy the alpha from A,B,C into the tree's RGBA.alpha channel
@@ -14,8 +16,10 @@
 								
     # ---- PREVIOUS VERSIONS ---- #
 	
-	Current Version : 			1.0
-	Tool Name:					Packer.nk
+	Current Version : 			
+								1.0
+	Tool Name:					
+								Packer.nk
 	Notable additions:
 								Everything
 	Known Bugs:
