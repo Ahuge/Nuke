@@ -3,6 +3,22 @@
 	Tool Name: 					
 								RotoOutput.nk
 	Current Version : 			
+								1.6.2
+
+	Notable additions:
+								Creating the backdrop will now automatically set-up your Roto Channel layer for you
+	Known Bugs:
+								The logic inside will not update if a Roto Output changes upstream until the mode is changed in this node
+	Planned Updates:
+								Merge the Packer tool and the Roto Output node
+	Notes:
+								Version 1.6.2 is the third version in the GitHub package
+								
+    # ---- PREVIOUS VERSIONS ---- #
+	
+	Tool Name: 					
+								RotoOutput.nk
+	Current Version : 			
 								1.6.1
 
 	Notable additions:
@@ -18,7 +34,7 @@
 	Notes:
 								Version 1.6.1 is the second version in the GitHub package
 								
-    # ---- PREVIOUS VERSIONS ---- #
+    # --------------------------- #
 	
 	Tool Name: 					
 								RotoOutput.nk

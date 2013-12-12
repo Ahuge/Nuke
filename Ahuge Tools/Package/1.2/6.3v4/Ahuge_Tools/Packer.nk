@@ -1,0 +1,178 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+add_layer {test test.red test.green test.blue test.alpha test.matte}
+Group {
+ name ChannelPacker
+ help "Created 2013 by Alex Hughes\ngo to www.ahuge.ca for updates and other tools"
+ tile_color 0x7500ffff
+ gl_color 0xff00ff
+ selected true
+ xpos -294
+ ypos 186
+ addUserKnob {20 Channels}
+ addUserKnob {41 ChannelGroup l "New Channel Group" t "This is the new channel group that the shapes will be put into" T ShuffleCopy1.in}
+ addUserKnob {6 CopyAlphaCheckBox l "Copy Alpha" +STARTLINE}
+ CopyAlphaCheckBox true
+ addUserKnob {26 para l "" +STARTLINE T <p>}
+ addUserKnob {26 para2 l "" +STARTLINE T <p>}
+ addUserKnob {26 break_1 l "" +STARTLINE T <br>}
+ addUserKnob {26 break l "" +STARTLINE T <br>}
+ addUserKnob {26 ""}
+ addUserKnob {26 Version l "" +STARTLINE T "Version 1.1"}
+ addUserKnob {26 CopyLeft l "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;" -STARTLINE T " "}
+}
+ Input {
+  inputs 0
+  name A
+  xpos 70
+  ypos -81
+  number 3
+ }
+set N1a4b7350 [stack 0]
+ Dot {
+  name Dot5
+  xpos 654
+  ypos -78
+ }
+ Dot {
+  name Dot4
+  xpos 654
+  ypos 90
+ }
+push 0
+ Input {
+  inputs 0
+  name C
+  xpos 180
+  ypos -33
+  number 1
+ }
+set N1a4b39f0 [stack 0]
+ Dot {
+  name Dot2
+  xpos 544
+  ypos -30
+ }
+ Input {
+  inputs 0
+  name B
+  xpos -40
+  ypos -153
+  number 2
+ }
+ Dot {
+  name Dot3
+  xpos -6
+  ypos 90
+ }
+set N1ad78bb0 [stack 0]
+ Merge2 {
+  inputs 3+1
+  name Merge1
+  xpos 510
+  ypos 87
+ }
+ Input {
+  inputs 0
+  name Plate
+  xpos 290
+  ypos 15
+ }
+set N1a4b6270 [stack 0]
+ Dot {
+  name Dot7
+  xpos 434
+  ypos 18
+ }
+ Dot {
+  name Dot6
+  xpos 434
+  ypos 162
+ }
+ ChannelMerge {
+  inputs 2
+  name ChannelMerge1
+  xpos 510
+  ypos 147
+ }
+ Dot {
+  name Dot8
+  xpos 544
+  ypos 234
+ }
+push $N1a4b39f0
+push $N1a4b7350
+push $N1ad78bb0
+ Dot {
+  name Dot1
+  xpos -6
+  ypos 162
+ }
+ ShuffleCopy {
+  inputs 2
+  in alpha
+  in2 alpha
+  red black
+  green black
+  blue black
+  alpha black
+  black red
+  red2 black
+  green2 black
+  out2 {{{parent.ShuffleCopy1.in}}}
+  name ShuffleCopy2
+  xpos 70
+  ypos 159
+ }
+ ShuffleCopy {
+  inputs 2
+  in alpha
+  in2 {{{parent.ShuffleCopy1.in}}}
+  red black
+  green black
+  blue black
+  alpha black
+  red2 red
+  out2 {{{parent.ShuffleCopy1.in}}}
+  name ShuffleCopy4
+  xpos 180
+  ypos 159
+ }
+push $N1a4b6270
+ ShuffleCopy {
+  inputs 2
+  in test
+  black red
+  white green
+  red2 blue
+  green2 alpha
+  out2 {{{in}}}
+  name ShuffleCopy1
+  xpos 290
+  ypos 159
+ }
+set N1a4b6c90 [stack 0]
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  selected true
+  xpos 290
+  ypos 225
+  disable {{"-1* (-1 +parent.CopyAlphaCheckBox)"}}
+ }
+ Output {
+  name Output1
+  xpos 290
+  ypos 351
+ }
+push $N1a4b6c90
+ Viewer {
+  input_process false
+  name Viewer1
+  xpos 627
+  ypos 288
+ }
+end_group

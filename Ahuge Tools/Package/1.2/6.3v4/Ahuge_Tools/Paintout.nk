@@ -1,0 +1,207 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push 0
+push 0
+push $cut_paste_input
+Group {
+inputs 3
+name Paintout
+tile_color 0x7500ffff
+selected true
+xpos 467
+ypos -983
+addUserKnob {20 Settings}
+addUserKnob {41 screen_type l "screen type" T IBKColourV3_3.screen_type}
+addUserKnob {41 Size l size T IBKColourV3_3.Size}
+addUserKnob {26 p l "" +STARTLINE T <p>}
+addUserKnob {41 off l darks T IBKColourV3_3.off}
+addUserKnob {41 mult_1 l lights T IBKColourV3_3.mult}
+addUserKnob {26 br l "" +STARTLINE T <br>}
+addUserKnob {26 p2 l "" +STARTLINE T <p>}
+addUserKnob {41 erode T IBKColourV3_3.erode}
+addUserKnob {41 multi l "patch black" T IBKColourV3_3.multi}
+addUserKnob {26 para1 l "" +STARTLINE T <p>}
+addUserKnob {20 SoftenGroup l "Soften Mask" n 1}
+SoftenGroup 0
+addUserKnob {41 sizeSlider l Erode T ErodeBlur.sizeSlider}
+addUserKnob {41 size l Blur T ErodeBlur.size}
+addUserKnob {41 filter T ErodeBlur.filter}
+addUserKnob {41 quality l "" -STARTLINE T ErodeBlur.quality}
+addUserKnob {26 ""}
+addUserKnob {41 mix T ErodeBlur.mix}
+addUserKnob {20 endGroup n -1}
+addUserKnob {26 ""}
+}
+Input {
+inputs 0
+name Mask
+xpos 400
+ypos 399
+number 1
+}
+set N6f3a6ec0 [stack 0]
+Input {
+inputs 0
+name Roto
+xpos 290
+ypos 519
+}
+Merge2 {
+inputs 2
+operation stencil
+name Merge3
+xpos 400
+ypos 519
+}
+Group {
+name ErodeBlur
+onCreate "\nnuke.thisNode()\['sizeSlider'].setFlag(0x0000000000000004)\n\n"
+tile_color 0x7500ffff
+xpos 510
+ypos 519
+addUserKnob {20 ErodeBlur}
+addUserKnob {41 channels T Erode1.channels}
+addUserKnob {7 sizeSlider l Erode R -100 100}
+addUserKnob {41 size l Blur T Blur1.size}
+addUserKnob {41 filter T Blur1.filter}
+addUserKnob {41 quality l "" -STARTLINE T Blur1.quality}
+addUserKnob {26 ""}
+addUserKnob {41 mix T Erode1.mix}
+addUserKnob {26 break l "" +STARTLINE T <p>}
+addUserKnob {26 ""}
+addUserKnob {26 Version l "" +STARTLINE T "Version 1.0"}
+addUserKnob {26 CopyLeft l "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;" -STARTLINE T " "}
+}
+Input {
+inputs 0
+name Input1
+xpos -542
+ypos -297
+}
+Erode {
+channels rgba
+size {{-1*sizeSlider i}}
+fringe true
+name Erode1
+xpos -542
+ypos -255
+}
+Blur {
+channels {{{parent.Erode1.channels}}}
+mix {{parent.Erode1.mix}}
+name Blur1
+label "\[value size]"
+xpos -542
+ypos -189
+}
+Output {
+name Output1
+xpos -542
+ypos -90
+}
+end_group
+push $N6f3a6ec0
+Invert {
+name Invert1
+xpos 510
+ypos 393
+}
+Input {
+inputs 0
+name Plate
+xpos 840
+ypos 399
+number 2
+}
+set N6f3a7910 [stack 0]
+Merge2 {
+inputs 2
+operation mask
+name Merge1
+xpos 620
+ypos 399
+}
+IBKColourV3 {
+name IBKColourV3_3
+xpos 620
+ypos 471
+screen_type green
+Size 70
+erode 0.52
+multi 1.73
+}
+Group {
+inputs 2
+name (switchmatte)
+xpos 620
+ypos 519
+addUserKnob {20 User}
+addUserKnob {6 premult l un-premult +STARTLINE}
+}
+Input {
+inputs 0
+name Matte
+xpos 555
+ypos 250
+number 1
+}
+Input {
+inputs 0
+name Source
+xpos 381
+ypos 255
+}
+ShuffleCopy {
+inputs 2
+name ShuffleCopy1
+xpos 462
+ypos 337
+}
+set N6fa96e80 [stack 0]
+push $N6fa96e80
+Premult {
+inputs 2
+name Premult1
+xpos 462
+ypos 378
+disable {{parent.premult}}
+}
+Output {
+name Output1
+xpos 462
+ypos 452
+}
+Viewer {
+frame 40
+input_process false
+name Viewer1
+xpos 348
+ypos 545
+}
+end_group
+set N10215b50 [stack 0]
+push $N6f3a7910
+Dot {
+name Dot1
+xpos 874
+ypos 642
+}
+Merge2 {
+inputs 2
+name Merge5
+xpos 620
+ypos 639
+}
+Output {
+name Output1
+xpos 620
+ypos 735
+}
+push $N10215b50
+Viewer {
+input_process false
+name Viewer1
+xpos 730
+ypos 495
+}
+end_group

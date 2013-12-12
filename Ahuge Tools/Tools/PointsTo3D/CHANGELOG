@@ -3,6 +3,24 @@
 	Tool Name: 					
 								PointsTo3D.nk
 	Current Version : 			
+								1.1
+
+	Notable additions:
+								Generation options for the geometry
+	Known Bugs:
+								None
+	Planned Updates:
+								None right now
+	Notes:
+								Version 1.1 is the second version in the GitHub package
+								"Name" will add a label to the created node
+								Leaving "Name" set to nothing will ignore the setting and not add a label to the node
+								
+    # ---- PREVIOUS VERSIONS ---- #
+	
+	Tool Name: 					
+								PointsTo3D.nk
+	Current Version : 			
 								1.0
 
 	Notable additions:
