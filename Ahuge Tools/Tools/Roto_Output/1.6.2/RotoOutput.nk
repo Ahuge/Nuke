@@ -1,5 +1,5 @@
 set cut_paste_input [stack 0]
-version 7.0 v6
+version 6.3 v4
 push $cut_paste_input
 push 0
 add_layer {test test.matte test.red test.green test.blue test.alpha}

@@ -1,5 +1,28 @@
     # ---- CHANGELOG ---- #
 	
+	Current Version : 1.3
+	Tool List:					
+								ErodeBlur - v1.1
+								Packer - v1.1
+								Paintout - v1.0
+								PointsTo3D - v1.1
+								Saturation - v1.0
+								WriteFix - v1.0
+								Backdrop - v1.1
+								Roto Output - v1.7
+	Notable additions:
+								Roto Output now at version 1.7
+								Roto Output now has 3D Roto mode. You can have your spline match up with your plate now while doing 3d projection roto.
+	Known Bugs:
+								None
+	Planned Updates:
+								Add Documentation
+	Notes:
+								Planning on making this useful.
+								Slowly migrating everything into a universal package.
+								
+    # ---- PREVIOUS VERSIONS ---- #
+	
 	Current Version : 1.2
 	Tool List:					
 								ErodeBlur - v1.1
@@ -21,7 +44,7 @@
 								Planning on making this useful.
 								Slowly migrating everything into a universal package.
 								
-    # ---- PREVIOUS VERSIONS ---- #
+    # --------------------------- #
 	
 	Current Version : 1.1
 	Tool List:					
