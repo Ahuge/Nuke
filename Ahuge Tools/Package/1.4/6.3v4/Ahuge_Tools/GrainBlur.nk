@@ -1,0 +1,125 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+Group {
+name Grain_Blur
+label "\[value MainGrain.label]"
+selected true
+xpos 174
+ypos 393
+addUserKnob {20 Grain}
+addUserKnob {41 seed T MainGrain.seed}
+addUserKnob {41 presets T MainGrain.presets}
+addUserKnob {8 BlurGrainAmount l "Blur Grain %" t "This number controls the amount of grain that is applied to the blurred edge of your patch"}
+BlurGrainAmount 0.5
+addUserKnob {26 "" l "@b;Size"}
+addUserKnob {41 red_size l red T MainGrain.red_size}
+addUserKnob {41 green_size l green T MainGrain.green_size}
+addUserKnob {41 blue_size l blue T MainGrain.blue_size}
+addUserKnob {26 "" l "@b;Irregularity"}
+addUserKnob {41 red_i l red T MainGrain.red_i}
+addUserKnob {41 green_i l green T MainGrain.green_i}
+addUserKnob {41 blue_i l blue T MainGrain.blue_i}
+addUserKnob {26 "" l "@b;Intensity"}
+addUserKnob {41 red_m l red T MainGrain.red_m}
+addUserKnob {41 green_m l green T MainGrain.green_m}
+addUserKnob {41 blue_m l blue T MainGrain.blue_m}
+addUserKnob {41 black T MainGrain.black}
+addUserKnob {41 minimum T MainGrain.minimum}
+addUserKnob {26 "" l "@b;Mask"}
+addUserKnob {41 maskgrain l "Apply only through alpha" T MainGrain.maskgrain}
+addUserKnob {41 maskinvert l "Invert alpha" -STARTLINE T MainGrain.maskinvert}
+addUserKnob {26 ""}
+}
+Input {
+inputs 0
+name Plate
+xpos -287
+ypos 468
+}
+set N9c013a90 [stack 0]
+Dot {
+name Dot1
+xpos -143
+ypos 471
+}
+Dot {
+name Dot2
+xpos -143
+ypos 759
+}
+push $N9c013a90
+Invert {
+name Invert1
+xpos -397
+ypos 462
+}
+push $N9c013a90
+Merge2 {
+inputs 2
+operation difference
+name Merge1
+xpos -397
+ypos 564
+}
+Invert {
+name Invert2
+xpos -397
+ypos 606
+}
+push $N9c013a90
+Grain2 {
+name MainGrain
+label "Kodak 5248"
+xpos -287
+ypos 558
+black {0 0 0}
+minimum {0 0 0}
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name Copy1
+xpos -287
+ypos 606
+}
+Grain2 {
+name BlurGrain
+label "Kodak 5248"
+xpos -287
+ypos 681
+seed {{MainGrain.seed}}
+red_size {{MainGrain.red_size}}
+green_size {{MainGrain.green_size}}
+blue_size {{MainGrain.blue_size}}
+red_i {{MainGrain.red_i}}
+green_i {{MainGrain.green_i}}
+blue_i {{MainGrain.blue_i}}
+red_m {{MainGrain.red_m*parent.BlurGrainAmount}}
+green_m {{MainGrain.green_m*parent.BlurGrainAmount}}
+blue_m {{MainGrain.blue_m*parent.BlurGrainAmount}}
+black {{MainGrain.black.r*parent.BlurGrainAmount} {MainGrain.black.g*parent.BlurGrainAmount} {MainGrain.black.b*parent.BlurGrainAmount}}
+minimum {{MainGrain.minimum.r*parent.BlurGrainAmount} {MainGrain.minimum.g*parent.BlurGrainAmount} {MainGrain.minimum.b*parent.BlurGrainAmount}}
+maskgrain {{MainGrain.maskgrain}}
+maskinvert {{MainGrain.Copy1.invert_mask}}
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name Copy2
+xpos -287
+ypos 750
+}
+Output {
+name Output1
+xpos -287
+ypos 828
+}
+Output {
+name Output2
+xpos -287
+ypos 928
+}
+end_group

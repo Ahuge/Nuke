@@ -3,6 +3,59 @@
 	Tool Name: 					
 								RotoOutput.nk
 	Current Version : 			
+								1.7.5
+
+	Notable additions:
+								3D Roto Mode is even less intensive. now bakes in the linked animation and values instead of having it always linked.
+								GeoName and CameraName are now not live boxes and cannot be typed into
+	Known Bugs:
+								The logic inside will not update if a Roto Output changes upstream until the mode is changed in this node [ChoiceMenu]
+	Planned Updates:
+								Merge the Packer tool and the Roto Output node
+	Notes:
+								To assign the correct cameras and geo for the 3d Roto mode, first open up the properties of the RotoOutput and then select the desired camera and  press "select" to assign it
+								Version 1.7.5 is the sixth version in the GitHub package
+								
+    # ---- PREVIOUS VERSIONS ---- #
+								
+	Tool Name: 					
+								RotoOutput.nk
+	Current Version : 			
+								1.7.3
+
+	Notable additions:
+								3D Roto Mode streamlined to be less resource intensive
+	Known Bugs:
+								Cannot name your Geo or your Camera MagicCamera or MagicCard as those are the names of the nodes inside the Roto Output
+								The logic inside will not update if a Roto Output changes upstream until the mode is changed in this node [ChoiceMenu]
+	Planned Updates:
+								Merge the Packer tool and the Roto Output node
+	Notes:
+								To assign the correct cameras and geo for the 3d Roto mode, first open up the properties of the RotoOutput and then select the desired camera and  press "select" to assign it
+								Version 1.7.3 is the fifth version in the GitHub package
+								
+    # --------------------------- #
+								
+    Tool Name: 					
+								RotoOutput.nk
+	Current Version : 			
+								1.7
+
+	Notable additions:
+								New mode "3D Roto" will line up your spline and the plate when doing 3d Roto
+	Known Bugs:
+								Cannot name your Geo or your Camera MagicCamera or MagicCard as those are the names of the nodes inside the Roto Output
+								The logic inside will not update if a Roto Output changes upstream until the mode is changed in this node [ChoiceMenu]
+	Planned Updates:
+								Merge the Packer tool and the Roto Output node
+	Notes:
+								Version 1.7 is the fourth version in the GitHub package
+								
+    # --------------------------- #
+	
+	Tool Name: 					
+								RotoOutput.nk
+	Current Version : 			
 								1.6.2
 
 	Notable additions:
@@ -14,7 +67,7 @@
 	Notes:
 								Version 1.6.2 is the third version in the GitHub package
 								
-    # ---- PREVIOUS VERSIONS ---- #
+    # --------------------------- #
 	
 	Tool Name: 					
 								RotoOutput.nk

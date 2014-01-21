@@ -1,0 +1,73 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+Group {
+ name BetterSaturation
+ onCreate "\nnuke.thisNode()\['sizeSlider'].setFlag(0x0000000000000004)\n\n"
+ tile_color 0x7500ffff
+ selected true
+ xpos -440
+ ypos 106
+ addUserKnob {20 User}
+ addUserKnob {26 p l "" +STARTLINE T <p>}
+ addUserKnob {18 Saturation}
+ Saturation 1
+ addUserKnob {26 p1 l "" +STARTLINE T <p>}
+ addUserKnob {26 ""}
+ addUserKnob {7 MixKnob l Mix}
+ MixKnob 1
+}
+ Input {
+  inputs 0
+  name Mask
+  xpos -293
+  ypos -14
+ }
+ Dot {
+  name Dot1
+  xpos -259
+  ypos 37
+ }
+set N2e4c6660 [stack 0]
+push $N2e4c6660
+push $N2e4c6660
+ Input {
+  inputs 0
+  name Plate
+  xpos -403
+  ypos -62
+  number 1
+ }
+ Saturation {
+  inputs 1+1
+  channels {rgba.red -rgba.green -rgba.blue}
+  saturation {{parent.Saturation.0}}
+  mix {{parent.MixKnob}}
+  name Saturation1
+  xpos -403
+  ypos -15
+ }
+ Saturation {
+  inputs 1+1
+  channels {-rgba.red rgba.green -rgba.blue}
+  saturation {{parent.Saturation.1}}
+  mix {{parent.MixKnob}}
+  name Saturation2
+  xpos -403
+  ypos 28
+ }
+ Saturation {
+  inputs 1+1
+  channels {-rgba.red -rgba.green rgba.blue}
+  saturation {{parent.Saturation.2}}
+  mix {{parent.MixKnob}}
+  name Saturation3
+  xpos -403
+  ypos 81
+ }
+ Output {
+  name Output1
+  xpos -403
+  ypos 176
+ }
+end_group
