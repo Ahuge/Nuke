@@ -3,6 +3,44 @@
 	Tool Name: 					
 								RotoOutput.nk
 	Current Version : 			
+								1.8
+
+	Notable additions:
+								Added an option for custom geo that is not a card, for if you want to stabilze on a awkward obj that you have imported
+	Known Bugs:
+								The logic inside will not update if a Roto Output changes upstream until the mode is changed in this node [ChoiceMenu]
+	Planned Updates:
+								Merge the Packer tool and the Roto Output node
+	Notes:
+								Custom geo copies the selected obj (or other geo) into the RO node
+								Changing the value in the Overscan Amount box will not update the overscan, you must press "On" again
+								To assign the correct cameras and geo for the 3d Roto mode, first open up the properties of the RotoOutput and then select the desired camera and  press "select" to assign it
+								Version 1.7.8 is the eighth version in the GitHub package
+								
+    # ---- PREVIOUS VERSIONS ---- #
+	
+	Tool Name: 					
+								RotoOutput.nk
+	Current Version : 			
+								1.7.8
+
+	Notable additions:
+								Added controls for the overscan. When in 3D Roto mode, sometimes the plate would go outside the viewer. This can now be fixed
+	Known Bugs:
+								The logic inside will not update if a Roto Output changes upstream until the mode is changed in this node [ChoiceMenu]
+	Planned Updates:
+								Merge the Packer tool and the Roto Output node
+	Notes:
+								The overscan value now changes the viewer's overscan and the scanline renderer's overscan
+								Changing the value in the Overscan Amount box will not update the overscan, you must press "On" again
+								To assign the correct cameras and geo for the 3d Roto mode, first open up the properties of the RotoOutput and then select the desired camera and  press "select" to assign it
+								Version 1.7.8 is the seventh version in the GitHub package
+								
+    # --------------------------- #
+	
+	Tool Name: 					
+								RotoOutput.nk
+	Current Version : 			
 								1.7.5
 
 	Notable additions:
@@ -16,7 +54,7 @@
 								To assign the correct cameras and geo for the 3d Roto mode, first open up the properties of the RotoOutput and then select the desired camera and  press "select" to assign it
 								Version 1.7.5 is the sixth version in the GitHub package
 								
-    # ---- PREVIOUS VERSIONS ---- #
+    # --------------------------- #
 								
 	Tool Name: 					
 								RotoOutput.nk

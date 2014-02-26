@@ -1,0 +1,29 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+PointsTo3D {
+ name PointsTo3D
+ onCreate "\nnuke.thisNode()\['Uniform'].setFlag(0x0000000000000004)\n\n"
+ tile_color 0x7500ffff
+ label "\[value GeoPick]"
+ selected true
+ xpos -288
+ ypos 33
+ addUserKnob {20 GenerateTab l Generate}
+ addUserKnob {26 GenerateGeoText l "" +STARTLINE T "<h2> Generate Geometry </h2>"}
+ addUserKnob {26 p l "" -STARTLINE T <p>}
+ addUserKnob {26 ""}
+ addUserKnob {26 GeoType l "" -STARTLINE T "<h4>Geometry Type</h4>"}
+ addUserKnob {68 GeoPick l "" +STARTLINE M {Card Axis Sphere Cube Cylinder "" ""}}
+ addUserKnob {22 Create l Generate -STARTLINE T "this = nuke.thisNode()\nChoose = this.knob('GeoPick').value()\npointsThreeDee = this.knob('point3d')\ncustomScale = this.knob('Scale')\nuniformScale = this.knob('Uniform').value()\nXTrans = pointsThreeDee.value(0)\nYTrans = pointsThreeDee.value(1)\nZTrans = pointsThreeDee.value(2)\nXScale = customScale.value(0)\nYScale = customScale.value(1)\nZScale = customScale.value(2)\nnuke.createNode(\"%s\" % (Choose), inpanel=False)\nCardSel = nuke.selectedNode()\nCardSel\['translate'].setValue(XTrans, 0)\nCardSel\['translate'].setValue(YTrans, 1)\nCardSel\['translate'].setValue(ZTrans, 2)\nCardSel\['scaling'].setValue(XScale, 0)\nCardSel\['scaling'].setValue(YScale, 1)\nCardSel\['scaling'].setValue(ZScale, 2)\nCardSel\['uniform_scale'].setValue(uniformScale)\nCardSel\['label'].setValue(this.knob('Label').value())"}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {1 Label l Name}
+ addUserKnob {13 Scale}
+ Scale {1 1 1}
+ addUserKnob {7 Uniform l "Uniform Scale" R 0.01 10}
+ Uniform 1
+ addUserKnob {26 break l "" +STARTLINE T "<br>\n<br>\n<br>\n<br>\n<br>\n<br>\n"}
+ addUserKnob {26 ""}
+ addUserKnob {26 Version l "" +STARTLINE T "Version 1.1"}
+ addUserKnob {26 CopyLeft l "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;" -STARTLINE T ""}
+}

@@ -1,0 +1,544 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push 0
+push $cut_paste_input
+add_layer {test test.matte test.red test.green test.blue test.alpha}
+Group {
+ inputs 2
+ name Roto_Output
+ help "Created 2014 by Alex Hughes\ngo to www.ahuge.ca for updates and other tools"
+ knobChanged "\n \nk = nuke.thisKnob()\nMe = nuke.thisNode()\n\nif k.name() == \"ChoiceMenu\":\n   myName = Me\['name'].value()\n   BackgroundCopyNode = '%s.BackgroundCopy' %myName\n   AnimSize = '%s.AnimSize' %myName\n   GreyMatteSwitch = '%s.GreyMatteSwitch' %myName\n   if 'ChoiceMenu' in Me.dependencies()\[0].knobs():\n      Above = Me.dependencies()\[0].knob('ChoiceMenu').value()\n      if Above == 'Grey Matte': \n         if Me\['ChoiceMenu'].value() == 'Grey Matte':\n            #Read the BackgroundChannel\n            nuke.toNode(GreyMatteSwitch)\['which'].setValue(1)\n            nuke.toNode(BackgroundCopyNode)\['disable'].setValue(0)\n         else:\n            #Dont bring in a BackgroundChannel\n            nuke.toNode(GreyMatteSwitch)\['which'].setValue(0)\n            nuke.toNode(BackgroundCopyNode)\['disable'].setValue(1)\n      elif Above == 'Animation': \n         #Dont scale down the footage\n         nuke.toNode(AnimSize)\['disable'].setValue(1)\n      else:\n         if Me\['ChoiceMenu'].value() == 'Overlay':\n            #Dont bring in a BackgroundChannel\n            nuke.toNode(GreyMatteSwitch)\['which'].setValue(0)\n            nuke.toNode(BackgroundCopyNode)\['disable'].setValue(1)\n         elif Me\['ChoiceMenu'].value() == 'Grey Matte':\n            #Create the BackgroundChannel\n            nuke.toNode(GreyMatteSwitch)\['which'].setValue(2)\n            nuke.toNode(BackgroundCopyNode)\['disable'].setValue(0)\n         elif Me\['ChoiceMenu'].value() == 'Animation':\n            #Scale Down the footage\n            nuke.toNode(AnimSize)\['disable'].setValue(0)\n            nuke.toNode(BackgroundCopyNode)\['disable'].setValue(1)\n         elif Me\['ChoiceMenu'].value() == 'Original':\n            #Reset everything\n            nuke.toNode(AnimSize)\['disable'].setValue(0)\n            nuke.toNode(BackgroundCopyNode)\['disable'].setValue(1)\n            nuke.toNode(GreyMatteSwitch)\['which'].setValue(0)\n   else:\n      myName = Me\['name'].value()\n      BackgroundCopyNode = '%s.BackgroundCopy' %myName\n      AnimSize = '%s.AnimSize' %myName\n      GreyMatteSwitch = '%s.GreyMatteSwitch' %myName\n      if Me\['ChoiceMenu'].value() == 'Overlay':\n         #Dont bring in a BackgroundChannel\n         nuke.toNode(GreyMatteSwitch)\['which'].setValue(0)\n         nuke.toNode(BackgroundCopyNode)\['disable'].setValue(1)\n      elif Me\['ChoiceMenu'].value() == 'Grey Matte':\n         #Create the BackgroundChannel\n         nuke.toNode(GreyMatteSwitch)\['which'].setValue(2)\n         nuke.toNode(BackgroundCopyNode)\['disable'].setValue(0)\n      elif Me\['ChoiceMenu'].value() == 'Animation':\n         #Scale Down the footage\n         nuke.toNode(AnimSize)\['disable'].setValue(0)\n         nuke.toNode(BackgroundCopyNode)\['disable'].setValue(1)\n      elif Me\['ChoiceMenu'].value() == 'Original':\n         #Reset everything\n         nuke.toNode(AnimSize)\['disable'].setValue(0)\n         nuke.toNode(BackgroundCopyNode)\['disable'].setValue(1)\n         nuke.toNode(GreyMatteSwitch)\['which'].setValue(0)\n"
+ tile_color 0x7900ffff
+ label "\[value channel]\n\[set theState \[value OverlayCheck.which]\nif \{\$theState== 0\} \{set theText \"Original\" \} elseif \{\$theState== 1\} \{set theText \"Animation\"\} elseif \{\$theState== 2\} \{set theText \"Overlay\"\} elseif \{\$theState== 3\} \{set theText \"Grey Matte\"\} elseif \{\$theState== 4\} \{set theText \"Combined Output\"\} elseif \{\$theState== 5\} \{set theText \"Borders\"\} elseif \{\$theState== 6\} \{set theText \"3D Roto\"\}]"
+ selected true
+ xpos -462
+ ypos -165
+ addUserKnob {20 User l Settings}
+ addUserKnob {68 ChoiceMenu l Output M {Original Animation Overlay "Grey Matte" Combined Borders "3D Roto"}}
+ addUserKnob {6 AlphOutput l "Preserve Alpha" +STARTLINE}
+ AlphOutput true
+ addUserKnob {26 breakline l "" +STARTLINE T <p>}
+ addUserKnob {22 BackdropButton l "Create Backdrop" T "import random\ndef autoBackdropCustom(Nodes, Colour):\n  if not Nodes:\n    return nuke.nodes.BackdropNode()\n  if not Colour:\n   Colour =  int((random.random()*(16 - 10))) + 10\n\n  # Calculate bounds for the backdrop node.\n  bdX = Nodes.xpos()\n  bdY = Nodes.ypos()\n  bdW = Nodes.xpos() + Nodes.screenWidth() - bdX\n  bdH = Nodes.ypos() + Nodes.screenHeight() - bdY\n  \n  # Expand the bounds to leave a little border. Elements are offsets for left, top, right and bottom edges respectively\n  left, top, right, bottom = (-20, -100, 20, 20)\n  bdX += left\n  bdY += top\n  bdW += (right - left)\n  bdH += (bottom - top)\n  \n  n = nuke.nodes.BackdropNode(xpos = bdX,\n                              bdwidth = bdW,\n                              ypos = bdY,\n                              bdheight = bdH,\n                              tile_color = Colour,\n                              note_font_size=42)\n  n\['selected'].setValue(True)\n  return n\ndef CreateBackdrop():\n    import random\n    if not nuke.thisNode().dependencies():\n        nuke.message(\"Node must be plugged in\")\n        return\n    else:\n        BackName = nuke.getInput('Name?')\n        Nodey = nuke.thisNode()\n        nuke.Layer(BackName , \['%s.matte' %BackName])\n        nuke.thisNode()\['channel'].setValue(BackName)\n        Nodes = min(\[i for i in nuke.thisNode().dependencies()])\n        if nuke.thisNode()\['RandomCheck'].value() == 1:\n\t\t\tfColour = \[random.random(), random.random(), random.random(), random.random()]\n\t\t\thColour = int('%02x%02x%02x%02x' % (fColour\[0]*255,fColour\[1]*255,fColour\[2]*255,fColour\[3]),16) \n        else:\n\t\t\tfColour = nuke.thisNode()\['RotoColour'].value()\n\t\t\thColour = int('%02x%02x%02x%02x' % (fColour\[0]*255,fColour\[1]*255,fColour\[2]*255,fColour\[3]),16) \n        nuke.root().begin()\n        autoBackdropCustom(Nodes, hColour)\n        Nodey\['RotoColour'].setValue(fColour)\n        nuke.selectedNode()\['label'].setValue(BackName)\nCreateBackdrop()" +STARTLINE}
+ addUserKnob {6 RandomCheck l Random -STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {26 OverlayTitle l "" +STARTLINE T "<B>\n<t3>\nOverlay Controls \n<br>"}
+ addUserKnob {41 RotoColour l "Roto Colour" T Grade2.multiply}
+ addUserKnob {41 mix T Merge2.mix}
+ addUserKnob {41 channel l "Roto Channel" T ShuffleCopy2.out}
+ addUserKnob {26 ""}
+ addUserKnob {26 GreymatteTitle l "" +STARTLINE T "<B>\n<T3>\nGreyMatte Controls\n<br>"}
+ addUserKnob {41 color l "BG Colour" T Constant1.color}
+ addUserKnob {26 ""}
+ addUserKnob {26 CombinedTitle l "" +STARTLINE T "<B>\n<T3>\nCombined Output Controls\n<br>"}
+ addUserKnob {3 MatteSwitch}
+ MatteSwitch {0}
+ addUserKnob {22 PySetFrame l "Set to this frame" -STARTLINE T "this = nuke.thisNode() \nthis.knob('MatteSwitch').setValue(nuke.frame()) "}
+ addUserKnob {26 ""}
+ addUserKnob {26 BorderControlsText l "" +STARTLINE T "<b>Border Controls </b>"}
+ addUserKnob {26 BreackText1_4 l "" +STARTLINE T <p>}
+ addUserKnob {14 BorderWidth l "Border Width" R 0 100}
+ BorderWidth {1}
+ addUserKnob {26 BreakText_1_5 l "" +STARTLINE T <p>}
+ addUserKnob {20 Roto3D l "3D Roto"}
+ addUserKnob {26 Title l "" +STARTLINE T "<b>3D Roto Tool"}
+ addUserKnob {26 break l "" +STARTLINE T <p>}
+ addUserKnob {1 GeoName l "Geo Name:" +DISABLED}
+ addUserKnob {22 GeoThis l Select -STARTLINE T "\nsel = nuke.Root().selectedNode()\['name'].value()\nthis = nuke.thisNode() \nthis.knob('GeoName').setValue(sel) \n\nMagicCard = nuke.toNode(\"MagicCard\")\n\nMagicCard\['translate'].setExpression(\"parent.parent.\[value parent.GeoName].translate.x\", 0)\nMagicCard\['translate'].setExpression(\"parent.parent.\[value parent.GeoName].translate.y\", 1)\nMagicCard\['translate'].setExpression(\"parent.parent.\[value parent.GeoName].translate.z\", 2)\n\nMagicCard\['rotate'].setExpression(\"parent.parent.\[value parent.GeoName].rotate.x\", 0)\nMagicCard\['rotate'].setExpression(\"parent.parent.\[value parent.GeoName].rotate.y\", 1)\nMagicCard\['rotate'].setExpression(\"parent.parent.\[value parent.GeoName].rotate.z\", 2)\n\nMagicCard\['scaling'].setExpression(\"parent.parent.\[value parent.GeoName].scaling.x\", 0)\nMagicCard\['scaling'].setExpression(\"parent.parent.\[value parent.GeoName].scaling.y\", 1)\nMagicCard\['scaling'].setExpression(\"parent.parent.\[value parent.GeoName].scaling.z\", 2)\nMagicCard\['uniform_scale'].setExpression(\"parent.parent.\[value parent.GeoName].uniform_scale\")\n\nMagicCard\['pivot'].setExpression(\"parent.parent.\[value parent.GeoName].pivot.x\", 0)\nMagicCard\['pivot'].setExpression(\"parent.parent.\[value parent.GeoName].pivot.y\", 1)\nMagicCard\['pivot'].setExpression(\"parent.parent.\[value parent.GeoName].pivot.z\", 2)\n\nMagicCard\['skew'].setExpression(\"parent.parent.\[value parent.GeoName].skew.x\", 0)\nMagicCard\['skew'].setExpression(\"parent.parent.\[value parent.GeoName].skew.y\", 1)\nMagicCard\['skew'].setExpression(\"parent.parent.\[value parent.GeoName].skew.z\", 2)\n\nMagicCardList = \['translate.x', 'translate.y', 'translate.z', 'rotate.x', 'rotate.y', 'rotate.z', 'pivot.x', 'pivot.y', 'pivot.z', 'skew.x', 'skew.y', 'skew.z' ,'scaling.x', 'scaling.y', 'scaling.z', 'uniform_scale']\nfor i in MagicCardList:\n    nuke.animation(\"MagicCard.%s\" % i, \"generate\", ('root.first_frame', 'root.last_frame', \"1\"))    "}
+ addUserKnob {1 CameraName l "Camera Name:" +DISABLED}
+ addUserKnob {22 CameraThis l Select -STARTLINE T "\nsel = nuke.Root().selectedNode()\['name'].value()\nthis = nuke.thisNode() \nthis.knob('CameraName').setValue(sel) \n\nMagicCamera = nuke.toNode(\"MagicCamera\")\n\nMagicCamera\['translate'].setExpression(\"parent.parent.\[value parent.CameraName].translate.x\", 0)\nMagicCamera\['translate'].setExpression(\"parent.parent.\[value parent.CameraName].translate.y\", 1)\nMagicCamera\['translate'].setExpression(\"parent.parent.\[value parent.CameraName].translate.z\", 2)\n\nMagicCamera\['rotate'].setExpression(\"parent.parent.\[value parent.CameraName].rotate.x\", 0)\nMagicCamera\['rotate'].setExpression(\"parent.parent.\[value parent.CameraName].rotate.y\", 1)\nMagicCamera\['rotate'].setExpression(\"parent.parent.\[value parent.CameraName].rotate.z\", 2)\n\nMagicCamera\['scaling'].setExpression(\"parent.parent.\[value parent.CameraName].scaling.x\", 0)\nMagicCamera\['scaling'].setExpression(\"parent.parent.\[value parent.CameraName].scaling.y\", 1)\nMagicCamera\['scaling'].setExpression(\"parent.parent.\[value parent.CameraName].scaling.z\", 2)\nMagicCamera\['uniform_scale'].setExpression(\"parent.parent.\[value parent.CameraName].uniform_scale\")\n\nMagicCamera\['pivot'].setExpression(\"parent.parent.\[value parent.CameraName].pivot.x\", 0)\nMagicCamera\['pivot'].setExpression(\"parent.parent.\[value parent.CameraName].pivot.y\", 1)\nMagicCamera\['pivot'].setExpression(\"parent.parent.\[value parent.CameraName].pivot.z\", 2)\n\nMagicCamera\['skew'].setExpression(\"parent.parent.\[value parent.CameraName].skew.x\", 0)\nMagicCamera\['skew'].setExpression(\"parent.parent.\[value parent.CameraName].skew.y\", 1)\nMagicCamera\['skew'].setExpression(\"parent.parent.\[value parent.CameraName].skew.z\", 2)\n\nMagicCamera\['focal'].setExpression(\"parent.parent.\[value parent.CameraName].focal\")\n\nMagicCamera\['projection_mode'].setExpression(\"parent.parent.\[value parent.CameraName].projection_mode\")\n\nMagicCamera\['haperture'].setExpression(\"parent.parent.\[value parent.CameraName].haperture\")\n\nMagicCamera\['vaperture'].setExpression(\"parent.parent.\[value parent.CameraName].vaperture\")\n\nMagicCamera\['near'].setExpression(\"parent.parent.\[value parent.CameraName].near\")\n\nMagicCamera\['far'].setExpression(\"parent.parent.\[value parent.CameraName].far\")\n\nMagicCamera\['fstop'].setExpression(\"parent.parent.\[value parent.CameraName].fstop\")\n\nMagicCamera\['focal_point'].setExpression(\"parent.parent.\[value parent.CameraName].focal_point\")\n\n\nMagicCameraList = \['translate.x', 'translate.y', 'translate.z', 'rotate.x', 'rotate.y', 'rotate.z', 'pivot.x', 'pivot.y', 'pivot.z', 'skew.x', 'skew.y', 'skew.z', 'scaling.x', 'scaling.y', 'scaling.z', 'focal', 'projection_mode', 'haperture', 'vaperture', 'near', 'far', 'fstop', 'focal_point', 'uniform_scale']\nfor i in MagicCameraList:\n    nuke.animation(\"MagicCamera.%s\" % i, \"generate\", ('root.first_frame', 'root.last_frame', \"1\"))\n"}
+ addUserKnob {3 Frame l Frame:}
+ Frame {0}
+ addUserKnob {22 FrameThis l "Set to this frame" -STARTLINE T "this = nuke.thisNode() \nthis.knob('Frame').setValue(nuke.frame()) "}
+ addUserKnob {26 ""}
+ addUserKnob {26 ThreeDeeRotoSettings l "" t "Sometime the plate will get cut off by the viewer. set an overscan amount and turn the Overscan on" +STARTLINE T "<b><h4><center>3D Roto Settings</center></h4></b>"}
+ addUserKnob {26 breakers l "" +STARTLINE T <br>}
+ addUserKnob {35 OverscanOn l Overscan t "overscanYes = nuke.activeViewer().node().knob('show_overscan')\noverscanYes.setValue(1)\nthisAmount = nuke.thisNode\['overscan'].value()\nVAmount = nuke.activeViewer().node().knob('overscan')\nVAmount.setValue(thisAmount)\nnuke.toNode(\"ScanlineRender1\")\['overscan'].setValue(thisAmount)\nret = print \"Overscan Off\" ]\n\noverscanYes = nuke.activeViewer().node().knob('show_overscan')\\noverscanYes.setValue(1)\\nthisAmount = nuke.thisNode\['overscan'].value()\\nVAmount = nuke.activeViewer().node().knob('overscan')\\nVAmount.setValue(thisAmount)\\nnuke.toNode(\"ScanlineRender1\")\['overscan'].setValue(thisAmount)\\nret = print \"Overscan Off\" ]\n\n" +HIDDEN M {Off "\[python -execlocal activeViewer = nuke.activeViewer().node().knob('show_overscan')\\nactiveViewer.setValue(0)\\nret = print \"Overscan Off\"]" On "\[python -execlocal overscanYes = nuke.activeViewer().node().knob('show_overscan')\\noverscanYes.setValue(1)\\nthisAmount = nuke.thisNode\['overscan'].value()\\nVAmount = nuke.activeViewer().node().knob('overscan')\\nVAmount.setValue(thisAmount)\\nnuke.toNode(\"ScanlineRender1\")\['overscan'].setValue(thisAmount)\\nret = print \"Overscan Off\" ]" "" "" "" ""}}
+ addUserKnob {3 overscan l "Overscan Amount" t "Sometime the plate will get cut off by the viewer. set an overscan amount and turn the Overscan on"}
+ overscan {200}
+ addUserKnob {26 TextOverscan l "" t "Sometime the plate will get cut off by the viewer. set an overscan amount and turn the Overscan on" +STARTLINE T "Overscan             "}
+ addUserKnob {22 On t "Sometime the plate will get cut off by the viewer. set an overscan amount and turn the Overscan on" -STARTLINE T "this = nuke.thisNode() \noverscanNumber = nuke.thisNode()\['overscan'].value()\nnuke.activeViewer().node()\['show_overscan'].setValue(1)\nprint overscanNumber\nnuke.activeViewer().node()\['overscan'].setValue(overscanNumber)\nnuke.toNode(\"MagicScan\")\['overscan'].setValue(overscanNumber)"}
+ addUserKnob {22 Off t "Sometime the plate will get cut off by the viewer. set an overscan amount and turn the Overscan on" -STARTLINE T nuke.activeViewer().node().knob('show_overscan').setValue(False)}
+ addUserKnob {20 InstructionsTab l Instructions}
+ addUserKnob {26 InstructionsText l "" +STARTLINE T "<ol>\n<li><B><H3>Overlay</H3></B>\n<ul><li>Set the color in the 'Roto Color' line, and create\n<br>\na new layer by selecting 'new' in the 'Roto Channel' \n<br>\ndrop down and naming the 'Name' as the name of \n<br>\nthe roto and the first line of 'Channels' as 'matte'</l></ul>\n</li>\n\n<li><B><H3>Grey Matte</H3></B>\n<ul><li>The BG Colour slider will change the colour of the backdrop\n<br>\n\t upon which the roto'd area will be placed over</l></ul>\n</li>\n\n<li>\n<B>\n<H3>\nCombined\n</H3>\n</B>\n<ul>\n<li>\nTo use the Overlay and Grey Matte combine feature you should go to the last frame\n<br>\nwhen roto was needed and press the \\\"Set to the frame\\\" button. \n<br>\n<br>\n Alternatively, in Version 1.4.2 and above\n<br>\n you can simply type your frame number in the box \n<br>\n</li>\n</ul>\n</li>\n<li>\n<B>\n<H3>\nBorder\n</H3>\n</B>\n<ul>\n<li>\nThe Border mode will create a line aroudn the edge of your roto allowing you to see\n<br>\nwhere there edge of a patch or roto is. \n<br>\n<br>\nIt can be really useful because it will accept any alpha not only from a roto node.\n</li>\n</ul>\n</li>\n</ol>"}
+ addUserKnob {26 blanktext l "" +STARTLINE}
+ addUserKnob {26 Version l "" +STARTLINE T "Version 1.7.8"}
+ addUserKnob {26 CopyLeft l "&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;&#160;&#160;&#160;" -STARTLINE T " "}
+}
+ Input {
+  inputs 0
+  name Plate
+  xpos -810
+  ypos -129
+ }
+set N11ab8210 [stack 0]
+ Dot {
+  name Dot16
+  xpos -776
+  ypos -30
+ }
+add_layer {Background Background.red Background.green Background.blue Background.alpha}
+ Shuffle {
+  black red
+  white green
+  red2 blue
+  green2 alpha
+  out2 Background
+  name Shuffle3
+  label "\[value in]"
+  xpos -700
+  ypos -39
+ }
+push $N11ab8210
+ Dot {
+  name Dot17
+  xpos -556
+  ypos -126
+ }
+set N11ab92f0 [stack 0]
+ Shuffle {
+  in Background
+  in2 rgba
+  alpha white
+  out Background
+  out2 rgba
+  name Shuffle5
+  label "\[value in]"
+  xpos -590
+  ypos -87
+ }
+push $N11ab92f0
+ Dot {
+  name Dot23
+  xpos -446
+  ypos -126
+ }
+ Dot {
+  name Dot24
+  xpos -446
+  ypos -30
+ }
+ Switch {
+  inputs 3
+  name GreyMatteSwitch
+  xpos -590
+  ypos -33
+ }
+ Dot {
+  name Dot22
+  xpos -556
+  ypos 18
+ }
+set N11ab8570 [stack 0]
+ Dot {
+  name Dot18
+  xpos 214
+  ypos 18
+ }
+ Dot {
+  name Dot19
+  xpos 214
+  ypos 882
+ }
+push $N11ab8570
+ Dot {
+  name Dot15
+  xpos -556
+  ypos 138
+ }
+set N11abb150 [stack 0]
+ Dot {
+  name Dot7
+  xpos -886
+  ypos 138
+ }
+set N11ab9650 [stack 0]
+ Dot {
+  name Dot12
+  xpos -996
+  ypos 138
+ }
+ Dot {
+  name Dot11
+  xpos -996
+  ypos 306
+ }
+set N11abaa90 [stack 0]
+ Input {
+  inputs 0
+  name Roto
+  xpos -150
+  ypos -129
+  number 1
+ }
+set N11aba070 [stack 0]
+push $N11aba070
+ Dot {
+  name Dot25
+  xpos -6
+  ypos -126
+ }
+ FilterErode {
+  size {{parent.BorderWidth}}
+  name FilterErode1
+  xpos -40
+  ypos -39
+  disable {{"\[set LineCheck \[value OverlayCheck.which]\nif \{\$LineCheck==5\} \{set theValue 0\} else \{set theValue 1\}]"}}
+ }
+ Merge2 {
+  inputs 2
+  operation xor
+  name Merge1
+  xpos -150
+  ypos -33
+  disable {{"\[set LineCheck \[value OverlayCheck.which]\nif \{\$LineCheck==5\} \{set theValue 0\} else \{set theValue 1\}]"}}
+ }
+ Dot {
+  name Dot26
+  xpos -116
+  ypos 234
+ }
+set Nec9abe0 [stack 0]
+ Dot {
+  name Dot21
+  xpos -336
+  ypos 234
+ }
+set Nec99e60 [stack 0]
+ Dot {
+  name Dot30
+  xpos -1106
+  ypos 234
+ }
+ ChannelMerge {
+  inputs 2
+  name ChannelMerge2
+  xpos -1140
+  ypos 291
+ }
+ Dot {
+  name Dot13
+  xpos -1106
+  ypos 522
+ }
+push $N11abaa90
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy1
+  label "\[value in] -> \[value out]"
+  xpos -1030
+  ypos 513
+ }
+set Nec9b2a0 [stack 0]
+ Reformat {
+  type scale
+  scale 0.25
+  name AnimSize
+  xpos -1030
+  ypos 567
+ }
+ Dot {
+  name Dot14
+  xpos -996
+  ypos 834
+ }
+push $N11abb150
+ Dot {
+  name Dot6
+  xpos -226
+  ypos 138
+ }
+set Nec9a520 [stack 0]
+ Dot {
+  name Dot10
+  xpos 104
+  ypos 138
+ }
+push $Nec9abe0
+ ChannelMerge {
+  inputs 2
+  name ChannelMerge1
+  xpos 70
+  ypos 219
+ }
+ Dot {
+  name Dot3
+  xpos 104
+  ypos 330
+ }
+set Nec9af40 [stack 0]
+ Dot {
+  name Dot20
+  xpos 104
+  ypos 450
+ }
+set Nec9b600 [stack 0]
+ Dot {
+  name Dot9
+  xpos 104
+  ypos 786
+ }
+ Camera {
+  inputs 0
+  name MagicCamera
+  xpos -1350
+  ypos -150
+ }
+set N16c27070 [stack 0]
+ FrameHold {
+  first_frame {{parent.Frame}}
+  name FrameHold1
+  xpos -1360
+  ypos -63
+ }
+ Dot {
+  name Dot27
+  xpos -1326
+  ypos 42
+ }
+push $N16c27070
+push $N11ab8210
+ Project3D {
+  inputs 2
+  name Project3D1
+  xpos -1250
+  ypos -129
+ }
+ Card2 {
+  control_points {3 3 3 6 
+
+1 {-0.5 -0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0 0 0} 
+1 {0 -0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {0.5 0 0} 
+1 {0.5 -0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666865 0} 0 {0 0 0} 0 {1 0 0} 
+1 {-0.5 0 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0 0.5 0} 
+1 {0 0 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {0.5 0.5 0} 
+1 {0.5 0 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0.1666666716 0} 0 {0 -0.1666666716 0} 0 {1 0.5 0} 
+1 {-0.5 0.5 0} 0 {0.1666666865 0 0} 0 {0 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0 1 0} 
+1 {0 0.5 0} 0 {0.1666666716 0 0} 0 {-0.1666666716 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {0.5 1 0} 
+1 {0.5 0.5 0} 0 {0 0 0} 0 {-0.1666666865 0 0} 0 {0 0 0} 0 {0 -0.1666666865 0} 0 {1 1 0} }
+  name MagicCard
+  xpos -1250
+  ypos -57
+ }
+push 0
+ ScanlineRender {
+  inputs 3
+  overscan 200
+  motion_vectors_type distance
+  name MagicScan
+  xpos -1250
+  ypos 39
+ }
+ Dot {
+  name Dot29
+  xpos -1216
+  ypos 618
+ }
+ Dot {
+  name Dot28
+  xpos -776
+  ypos 618
+ }
+push $Nec99e60
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle6
+  label "\[value in]"
+  xpos -370
+  ypos 273
+ }
+ Dot {
+  name Dot2
+  xpos -336
+  ypos 330
+ }
+set Ned547e0 [stack 0]
+ Dot {
+  name Dot4
+  xpos -336
+  ypos 402
+ }
+push $Ned547e0
+ Grade {
+  multiply {1 0 0 1}
+  black_clamp false
+  name Grade2
+  xpos -480
+  ypos 327
+ }
+push $N11abb150
+ Merge2 {
+  inputs 2
+  mix {0.18}
+  name Merge2
+  xpos -590
+  ypos 327
+ }
+ ShuffleCopy {
+  inputs 2
+  red alpha
+  green green
+  blue blue
+  out test
+  name ShuffleCopy2
+  label "\[value in] -> \[value out]"
+  xpos -590
+  ypos 393
+ }
+set Nedd5d70 [stack 0]
+ Dot {
+  name Dot1
+  xpos -666
+  ypos 402
+ }
+set Nedd2e30 [stack 0]
+push $Nedd5d70
+push $Nec9af40
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle1
+  label "\[value in]"
+  xpos -150
+  ypos 321
+ }
+push $Nec9b600
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy3
+  xpos -150
+  ypos 441
+ }
+push $Nec9a520
+ Shuffle {
+  in Background
+  name Shuffle4
+  label "\[value in]"
+  xpos -260
+  ypos 441
+ }
+ Dot {
+  name Dot5
+  xpos -226
+  ypos 522
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color {0.18}
+  name Constant1
+  xpos -40
+  ypos 567
+ }
+ Keymix {
+  inputs 3
+  channels rgba
+  name Keymix1
+  xpos -150
+  ypos 591
+ }
+set Nedd4ff0 [stack 0]
+ TimeOffset {
+  time_offset {{(parent.MatteSwitch*2)+2}}
+  reverse_input true
+  name TimeOffset1
+  xpos -480
+  ypos 591
+ }
+ Switch {
+  inputs 2
+  which {{"\[python -execlocal import\\ nuke\\ncurrentframe\\ =\\ nuke.frame()\\nthis\\ =\\ nuke.thisNode()\\nparent\\ =\\ nuke.thisParent().knob('MatteSwitch').value()\\n\\nif\\ currentframe\\ <\\ parent:\\n\\ \\ \\ value\\ =\\ 1\\nelif\\ currentframe\\ >=\\ parent:\\n\\ \\ \\ value\\ =\\ 0\\nret\\ =\\ value]"}}
+  name Switch1
+  xpos -590
+  ypos 591
+ }
+ FrameRange {
+  first_frame 1
+  last_frame {{(parent.MatteSwitch)*2}}
+  name FrameRange1
+  xpos -590
+  ypos 615
+ }
+push $Nedd4ff0
+ FrameRange {
+  last_frame {{root.last_frame}}
+  name FrameRange2
+  xpos -150
+  ypos 663
+ }
+push $Nedd2e30
+push $N11ab9650
+ Dot {
+  name Dot8
+  xpos -886
+  ypos 666
+ }
+set Nedd3f10 [stack 0]
+push $Nedd3f10
+ Switch {
+  inputs 7
+  which {{parent.ChoiceMenu}}
+  name OverlayCheck
+  xpos -700
+  ypos 663
+ }
+ Shuffle {
+  alpha black
+  name Shuffle2
+  label "\[value in]"
+  xpos -700
+  ypos 705
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  mix {{AlphOutput i}}
+  name Copy1
+  xpos -700
+  ypos 777
+ }
+ Switch {
+  inputs 2
+  which {{"\[set Anim \[value OverlayCheck.which]\nif \{\$Anim== 1\} \{set which 1 \} else \{set which 0 \} ]"}}
+  name Switch2
+  xpos -700
+  ypos 831
+ }
+ Copy {
+  inputs 2
+  from0 Background.red
+  to0 Background.red
+  from1 Background.green
+  to1 Background.green
+  from2 Background.blue
+  to2 Background.blue
+  from3 Background.alpha
+  to3 Background.alpha
+  name BackgroundCopy
+  xpos -700
+  ypos 855
+  disable true
+ }
+ Output {
+  name Output1
+  xpos -700
+  ypos 951
+ }
+ Output {
+  name Output2
+  xpos -700
+  ypos 975
+ }
+push $Nec9b2a0
+ Viewer {
+  input_process false
+  name Viewer1
+  xpos -700
+  ypos 111
+ }
+end_group

@@ -1,5 +1,53 @@
     # ---- CHANGELOG ---- #
 	
+	Current Version : 1.6
+	Tool List:					
+								ErodeBlur - v1.1
+								Packer - v1.1
+								Paintout - v1.0
+								PointsTo3D - v1.1
+								Saturation - v1.0
+								WriteFix - v1.0
+								Backdrop - v1.1
+								Roto Output - v1.8
+	Notable additions:
+								Roto Output now at version 1.8
+								The 3D Roto mode now has an option to project onto custom geo
+	Known Bugs:
+								None
+	Planned Updates:
+								Add More Documentation
+	Notes:
+								Planning on making this useful.
+								Slowly migrating everything into a universal package.
+								Roto Output wiki live at https://github.com/Ahuge/Nuke/wiki/Roto-Output
+								
+    # ---- PREVIOUS VERSIONS ---- #
+	
+	Current Version : 1.5
+	Tool List:					
+								ErodeBlur - v1.1
+								Packer - v1.1
+								Paintout - v1.0
+								PointsTo3D - v1.1
+								Saturation - v1.0
+								WriteFix - v1.0
+								Backdrop - v1.1
+								Roto Output - v1.7.8
+	Notable additions:
+								Roto Output now at version 1.7.8
+								The 3D Roto mode now has an option to turn on overscanning and set the amount. This is good for when your plate goes outside the viewport
+	Known Bugs:
+								None
+	Planned Updates:
+								Add More Documentation
+	Notes:
+								Planning on making this useful.
+								Slowly migrating everything into a universal package.
+								Roto Output wiki live at https://github.com/Ahuge/Nuke/wiki/Roto-Output
+								
+    # --------------------------- #
+	
 	Current Version : 1.4
 	Tool List:					
 								ErodeBlur - v1.1
@@ -23,7 +71,7 @@
 								Slowly migrating everything into a universal package.
 								Roto Output wiki live at https://github.com/Ahuge/Nuke/wiki/Roto-Output
 								
-    # ---- PREVIOUS VERSIONS ---- #
+    # --------------------------- #
 	
 	Current Version : 1.3
 	Tool List:					
