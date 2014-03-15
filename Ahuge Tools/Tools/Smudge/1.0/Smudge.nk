@@ -1,0 +1,4518 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+Group {
+ name Smudge_Tool
+ tile_color 0x7900ffff
+ selected true
+ xpos -370
+ ypos 9
+ addUserKnob {20 User}
+ addUserKnob {12 Center l Start t "Set to the input's Bounding Box by default"}
+ Center {{"\[python nuke.thisNode().dependencies()\\\[0\\].bbox().x()\\ +\\ (nuke.thisNode().dependencies()\\\[0\\].bbox().w()/2)]"} {"\[python nuke.thisNode().dependencies()\\\[0\\].bbox().y()\\ +\\ (nuke.thisNode().dependencies()\\\[0\\].bbox().h()/2)]"}}
+ addUserKnob {41 fillpt l "Smudge To" t "Move the point in the viewer or type values into the boxes to direct the smudge" T Direction.fillpt}
+ addUserKnob {7 Resolution t "Range 1 -100" R 1 100}
+ Resolution 10
+ addUserKnob {26 ""}
+ addUserKnob {26 BlurText l "" t "Smooth the inside of the smudge for a better falloff with less processing" +STARTLINE T "<h4>Inner Blur</h4><p>"}
+ addUserKnob {6 BlurOff l "Disable Blur" +STARTLINE}
+ BlurOff true
+ addUserKnob {41 channels T Blur1.channels}
+ addUserKnob {41 size T Blur1.size}
+ addUserKnob {41 filter T Blur1.filter}
+ addUserKnob {41 quality l "" -STARTLINE T Blur1.quality}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 Version l "" +STARTLINE T "Version 1.0"}
+ addUserKnob {26 CopyLeft l "&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#169;  Alex Hughes 2013 &#160;&#160;&#160;&#160;" -STARTLINE T " "}
+}
+ Input {
+  inputs 0
+  name bg
+  selected true
+  xpos -150
+  ypos 495
+ }
+ Dot {
+  name Dot1
+  xpos -116
+  ypos 546
+ }
+set N9dea06c0 [stack 0]
+ Dot {
+  name Dot7
+  xpos -226
+  ypos 546
+ }
+set N9dea0d80 [stack 0]
+ Dot {
+  name Dot6
+  xpos -336
+  ypos 546
+ }
+set N9dea10e0 [stack 0]
+ Dot {
+  name Dot5
+  xpos -336
+  ypos 642
+ }
+set N9de9fca0 [stack 0]
+ Dot {
+  name Dot4
+  xpos -336
+  ypos 738
+ }
+set N9dea1440 [stack 0]
+ Dot {
+  name Dot2
+  xpos -336
+  ypos 834
+ }
+set N9dea0a20 [stack 0]
+ Dot {
+  name Dot3
+  xpos -336
+  ypos 930
+ }
+set N8112fd0 [stack 0]
+ Dot {
+  name Dot8
+  xpos -336
+  ypos 1002
+ }
+set N8113330 [stack 0]
+ Dot {
+  name Dot9
+  xpos -336
+  ypos 1098
+ }
+set N81139f0 [stack 0]
+ Dot {
+  name Dot10
+  xpos -336
+  ypos 1194
+ }
+set N8114ad0 [stack 0]
+ Dot {
+  name Dot11
+  xpos -336
+  ypos 1290
+ }
+set N8113690 [stack 0]
+ Dot {
+  name Dot12
+  xpos -336
+  ypos 1362
+ }
+set N8113d50 [stack 0]
+ Dot {
+  name Dot13
+  xpos -336
+  ypos 1458
+ }
+set N8114410 [stack 0]
+ Dot {
+  name Dot14
+  xpos -336
+  ypos 1554
+ }
+set N81140b0 [stack 0]
+ Dot {
+  name Dot15
+  xpos -336
+  ypos 1650
+ }
+set N8114770 [stack 0]
+ Dot {
+  name Dot16
+  xpos -336
+  ypos 1746
+ }
+set N7f9e570 [stack 0]
+ Dot {
+  name Dot17
+  xpos -336
+  ypos 1842
+ }
+set N7f9f650 [stack 0]
+ Dot {
+  name Dot18
+  xpos -336
+  ypos 1938
+ }
+set N7f9db50 [stack 0]
+ Dot {
+  name Dot19
+  xpos -336
+  ypos 2034
+ }
+set N7f9deb0 [stack 0]
+ Dot {
+  name Dot20
+  xpos -336
+  ypos 2130
+ }
+set N7f9e210 [stack 0]
+ Dot {
+  name Dot21
+  xpos -336
+  ypos 2226
+ }
+set N7f9e8d0 [stack 0]
+ Dot {
+  name Dot22
+  xpos -336
+  ypos 2322
+ }
+set N7f9ec30 [stack 0]
+ Dot {
+  name Dot23
+  xpos -336
+  ypos 2418
+ }
+set N7f9ef90 [stack 0]
+ Dot {
+  name Dot24
+  xpos -336
+  ypos 2514
+ }
+set N7f9f2f0 [stack 0]
+ Dot {
+  name Dot25
+  xpos -336
+  ypos 2610
+ }
+set N636ab70 [stack 0]
+ Dot {
+  name Dot26
+  xpos -336
+  ypos 2706
+ }
+set N6369730 [stack 0]
+ Dot {
+  name Dot27
+  xpos -336
+  ypos 2802
+ }
+set N636a4b0 [stack 0]
+ Dot {
+  name Dot28
+  xpos -336
+  ypos 2874
+ }
+set N6369070 [stack 0]
+ Dot {
+  name Dot29
+  xpos -336
+  ypos 2970
+ }
+set N63693d0 [stack 0]
+ Dot {
+  name Dot30
+  xpos -336
+  ypos 3066
+ }
+set N6369a90 [stack 0]
+ Dot {
+  name Dot31
+  xpos -336
+  ypos 3162
+ }
+set N6369df0 [stack 0]
+ Dot {
+  name Dot32
+  xpos -336
+  ypos 3258
+ }
+set N636a150 [stack 0]
+ Dot {
+  name Dot33
+  xpos -336
+  ypos 3354
+ }
+set N636a810 [stack 0]
+ Dot {
+  name Dot34
+  xpos -336
+  ypos 3450
+ }
+set N8c6bd240 [stack 0]
+ Dot {
+  name Dot35
+  xpos -336
+  ypos 3546
+ }
+set N8c6be9e0 [stack 0]
+ Dot {
+  name Dot36
+  xpos -336
+  ypos 3642
+ }
+set N8c6bdc60 [stack 0]
+ Dot {
+  name Dot37
+  xpos -336
+  ypos 3738
+ }
+set N8c6bd900 [stack 0]
+ Dot {
+  name Dot38
+  xpos -336
+  ypos 3834
+ }
+set N8c6bd5a0 [stack 0]
+ Dot {
+  name Dot39
+  xpos -336
+  ypos 3930
+ }
+set N8c6bcee0 [stack 0]
+ Dot {
+  name Dot40
+  xpos -336
+  ypos 4026
+ }
+set N8c6bdfc0 [stack 0]
+ Dot {
+  name Dot41
+  xpos -336
+  ypos 4122
+ }
+set N8c6be320 [stack 0]
+ Dot {
+  name Dot42
+  xpos -336
+  ypos 4218
+ }
+set N8c6be680 [stack 0]
+ Dot {
+  name Dot43
+  xpos -336
+  ypos 4314
+ }
+set Na1784f60 [stack 0]
+ Dot {
+  name Dot44
+  xpos -336
+  ypos 4410
+ }
+set Na1785980 [stack 0]
+ Dot {
+  name Dot45
+  xpos -336
+  ypos 4506
+ }
+set Na17852c0 [stack 0]
+ Dot {
+  name Dot46
+  xpos -336
+  ypos 4602
+ }
+set Na1785620 [stack 0]
+ Dot {
+  name Dot47
+  xpos -336
+  ypos 4698
+ }
+set Na1785ce0 [stack 0]
+ Dot {
+  name Dot48
+  xpos -336
+  ypos 4794
+ }
+set Na1786040 [stack 0]
+ Dot {
+  name Dot49
+  xpos -336
+  ypos 4890
+ }
+set Na1784540 [stack 0]
+ Dot {
+  name Dot50
+  xpos -336
+  ypos 4986
+ }
+set Na17848a0 [stack 0]
+ Dot {
+  name Dot51
+  xpos -336
+  ypos 5082
+ }
+set Na1784c00 [stack 0]
+ Dot {
+  name Dot52
+  xpos -336
+  ypos 5178
+ }
+set N617f520 [stack 0]
+ Dot {
+  name Dot53
+  xpos -336
+  ypos 5274
+ }
+set N617ee60 [stack 0]
+ Dot {
+  name Dot54
+  xpos -336
+  ypos 5370
+ }
+set N617e0e0 [stack 0]
+ Dot {
+  name Dot55
+  xpos -336
+  ypos 5466
+ }
+set N617f1c0 [stack 0]
+ Dot {
+  name Dot56
+  xpos -336
+  ypos 5562
+ }
+set N617e440 [stack 0]
+ Dot {
+  name Dot57
+  xpos -336
+  ypos 5658
+ }
+set N617e7a0 [stack 0]
+ Dot {
+  name Dot58
+  xpos -336
+  ypos 5754
+ }
+set N617f880 [stack 0]
+ Dot {
+  name Dot59
+  xpos -336
+  ypos 5850
+ }
+set N617fbe0 [stack 0]
+ Dot {
+  name Dot60
+  xpos -336
+  ypos 5946
+ }
+set N617eb00 [stack 0]
+ Dot {
+  name Dot61
+  xpos -336
+  ypos 6042
+ }
+set N22edd100 [stack 0]
+ Dot {
+  name Dot62
+  xpos -336
+  ypos 6138
+ }
+set N22edd460 [stack 0]
+ Dot {
+  name Dot63
+  xpos -336
+  ypos 6234
+ }
+set N22ede8a0 [stack 0]
+ Dot {
+  name Dot64
+  xpos -336
+  ypos 6330
+ }
+set N22edd7c0 [stack 0]
+ Dot {
+  name Dot65
+  xpos -336
+  ypos 6426
+ }
+set N22ede1e0 [stack 0]
+ Dot {
+  name Dot66
+  xpos -336
+  ypos 6522
+ }
+set N22eddb20 [stack 0]
+ Dot {
+  name Dot67
+  xpos -336
+  ypos 6618
+ }
+set N22ede540 [stack 0]
+ Dot {
+  name Dot68
+  xpos -336
+  ypos 6714
+ }
+set N22edde80 [stack 0]
+ Dot {
+  name Dot69
+  xpos -336
+  ypos 6810
+ }
+set N22edec00 [stack 0]
+ Dot {
+  name Dot70
+  xpos -336
+  ypos 6906
+ }
+set Ndbcda730 [stack 0]
+ Dot {
+  name Dot71
+  xpos -336
+  ypos 7002
+ }
+set Ndbcdb150 [stack 0]
+ Dot {
+  name Dot72
+  xpos -336
+  ypos 7098
+ }
+set Ndbcda3d0 [stack 0]
+ Dot {
+  name Dot73
+  xpos -336
+  ypos 7194
+ }
+set Ndbcdadf0 [stack 0]
+ Dot {
+  name Dot74
+  xpos -336
+  ypos 7290
+ }
+set Ndbcdaa90 [stack 0]
+ Dot {
+  name Dot75
+  xpos -336
+  ypos 7386
+ }
+set Ndbcdb810 [stack 0]
+ Dot {
+  name Dot76
+  xpos -336
+  ypos 7482
+ }
+set Ndbcdb4b0 [stack 0]
+ Dot {
+  name Dot77
+  xpos -336
+  ypos 7578
+ }
+set Ndbcda070 [stack 0]
+ Dot {
+  name Dot78
+  xpos -336
+  ypos 7674
+ }
+set Ndbcdbb70 [stack 0]
+ Dot {
+  name Dot79
+  xpos -336
+  ypos 7770
+ }
+set N9d7547d0 [stack 0]
+ Dot {
+  name Dot80
+  xpos -336
+  ypos 7866
+ }
+set N9d754e90 [stack 0]
+ Dot {
+  name Dot81
+  xpos -336
+  ypos 7962
+ }
+set N9d755f70 [stack 0]
+ Dot {
+  name Dot82
+  xpos -336
+  ypos 8058
+ }
+set N9d754b30 [stack 0]
+ Dot {
+  name Dot83
+  xpos -336
+  ypos 8154
+ }
+set N9d7551f0 [stack 0]
+ Dot {
+  name Dot84
+  xpos -336
+  ypos 8250
+ }
+set N9d753db0 [stack 0]
+ Dot {
+  name Dot85
+  xpos -336
+  ypos 8346
+ }
+set N9d754110 [stack 0]
+ Dot {
+  name Dot86
+  xpos -336
+  ypos 8442
+ }
+set N9d7562d0 [stack 0]
+ Dot {
+  name Dot87
+  xpos -336
+  ypos 8538
+ }
+set N9d756630 [stack 0]
+ Dot {
+  name Dot88
+  xpos -336
+  ypos 8634
+ }
+set N9d755550 [stack 0]
+ Dot {
+  name Dot89
+  xpos -336
+  ypos 8730
+ }
+set N9d754470 [stack 0]
+ Dot {
+  name Dot90
+  xpos -336
+  ypos 8826
+ }
+set N9d7573b0 [stack 0]
+ Dot {
+  name Dot91
+  xpos -336
+  ypos 8922
+ }
+set N9d756cf0 [stack 0]
+ Dot {
+  name Dot92
+  xpos -336
+  ypos 9018
+ }
+set N9d7558b0 [stack 0]
+ Dot {
+  name Dot93
+  xpos -336
+  ypos 9114
+ }
+set N9d753a50 [stack 0]
+ Dot {
+  name Dot94
+  xpos -336
+  ypos 9210
+ }
+set N9d756990 [stack 0]
+ Dot {
+  name Dot95
+  xpos -336
+  ypos 9306
+ }
+set N9d755c10 [stack 0]
+ Dot {
+  name Dot96
+  xpos -336
+  ypos 9402
+ }
+set N9d757050 [stack 0]
+ Dot {
+  name Dot97
+  xpos -336
+  ypos 9498
+ }
+set N893db90 [stack 0]
+ Dot {
+  name Dot98
+  xpos -336
+  ypos 9594
+ }
+set N893e910 [stack 0]
+ Dot {
+  name Dot99
+  xpos -336
+  ypos 9690
+ }
+set N893ce10 [stack 0]
+ Dot {
+  name Dot100
+  xpos -336
+  ypos 9786
+ }
+set N893e250 [stack 0]
+ Dot {
+  name Dot101
+  xpos -336
+  ypos 9882
+ }
+set N893c750 [stack 0]
+ Dot {
+  name Dot102
+  xpos -336
+  ypos 9978
+ }
+set N893def0 [stack 0]
+ Dot {
+  name Dot103
+  xpos -336
+  ypos 10074
+ }
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform100
+  xpos -260
+  ypos 10071
+ }
+set N893cab0 [stack 0]
+ Dot {
+  name Dot197
+  xpos -226
+  ypos 10122
+ }
+push $N893def0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform99
+  xpos -260
+  ypos 9975
+ }
+set N893c3f0 [stack 0]
+ Dot {
+  name Dot198
+  xpos -226
+  ypos 10026
+ }
+push $N893c750
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform98
+  xpos -260
+  ypos 9879
+ }
+set N893d830 [stack 0]
+ Dot {
+  name Dot199
+  xpos -226
+  ypos 9930
+ }
+push $N893e250
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform97
+  xpos -260
+  ypos 9783
+ }
+set N893f330 [stack 0]
+ Dot {
+  name Dot200
+  xpos -226
+  ypos 9834
+ }
+push $N893ce10
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform96
+  xpos -260
+  ypos 9687
+ }
+set N893ec70 [stack 0]
+ Dot {
+  name Dot201
+  xpos -226
+  ypos 9738
+ }
+push $N893e910
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform95
+  xpos -260
+  ypos 9591
+ }
+set N893f9f0 [stack 0]
+ Dot {
+  name Dot202
+  xpos -226
+  ypos 9642
+ }
+push $N893db90
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform94
+  xpos -260
+  ypos 9495
+ }
+set N650c720 [stack 0]
+ Dot {
+  name Dot203
+  xpos -226
+  ypos 9546
+ }
+push $N9d757050
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform93
+  xpos -260
+  ypos 9399
+ }
+set N650cde0 [stack 0]
+ Dot {
+  name Dot204
+  xpos -226
+  ypos 9450
+ }
+push $N9d755c10
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform92
+  xpos -260
+  ypos 9303
+ }
+set N650c060 [stack 0]
+ Dot {
+  name Dot189
+  xpos -226
+  ypos 9354
+ }
+push $N9d756990
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform91
+  xpos -260
+  ypos 9207
+ }
+set N650dec0 [stack 0]
+ Dot {
+  name Dot190
+  xpos -226
+  ypos 9258
+ }
+push $N9d753a50
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform90
+  xpos -260
+  ypos 9111
+ }
+set N650b9a0 [stack 0]
+ Dot {
+  name Dot191
+  xpos -226
+  ypos 9162
+ }
+push $N9d7558b0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform89
+  xpos -260
+  ypos 9015
+ }
+set N650d800 [stack 0]
+ Dot {
+  name Dot192
+  xpos -226
+  ypos 9066
+ }
+push $N9d756cf0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform88
+  xpos -260
+  ypos 8919
+ }
+set N650af80 [stack 0]
+ Dot {
+  name Dot193
+  xpos -226
+  ypos 8970
+ }
+push $N9d7573b0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform87
+  xpos -260
+  ypos 8823
+ }
+set N650b2e0 [stack 0]
+ Dot {
+  name Dot194
+  xpos -226
+  ypos 8874
+ }
+push $N9d754470
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform86
+  xpos -260
+  ypos 8727
+ }
+set N650bd00 [stack 0]
+ Dot {
+  name Dot195
+  xpos -226
+  ypos 8778
+ }
+push $N9d755550
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform85
+  xpos -260
+  ypos 8631
+ }
+set Nab8c850 [stack 0]
+ Dot {
+  name Dot196
+  xpos -226
+  ypos 8682
+ }
+push $N9d756630
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform84
+  xpos -260
+  ypos 8535
+ }
+set Nab8d270 [stack 0]
+ Dot {
+  name Dot181
+  xpos -226
+  ypos 8586
+ }
+push $N9d7562d0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform83
+  xpos -260
+  ypos 8439
+ }
+set Nab8ea10 [stack 0]
+ Dot {
+  name Dot182
+  xpos -226
+  ypos 8490
+ }
+push $N9d754110
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform82
+  xpos -260
+  ypos 8343
+ }
+set Nab8c4f0 [stack 0]
+ Dot {
+  name Dot183
+  xpos -226
+  ypos 8394
+ }
+push $N9d753db0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform81
+  xpos -260
+  ypos 8247
+ }
+set Nab8cf10 [stack 0]
+ Dot {
+  name Dot184
+  xpos -226
+  ypos 8298
+ }
+push $N9d7551f0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform80
+  xpos -260
+  ypos 8151
+ }
+set Nab8dc90 [stack 0]
+ Dot {
+  name Dot185
+  xpos -226
+  ypos 8202
+ }
+push $N9d754b30
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform79
+  xpos -260
+  ypos 8055
+ }
+set Nab8f790 [stack 0]
+ Dot {
+  name Dot186
+  xpos -226
+  ypos 8106
+ }
+push $N9d755f70
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform78
+  xpos -260
+  ypos 7959
+ }
+set Nab8f0d0 [stack 0]
+ Dot {
+  name Dot187
+  xpos -226
+  ypos 8010
+ }
+push $N9d754e90
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform77
+  xpos -260
+  ypos 7863
+ }
+set Nab8f430 [stack 0]
+ Dot {
+  name Dot188
+  xpos -226
+  ypos 7914
+ }
+push $N9d7547d0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform76
+  xpos -260
+  ypos 7767
+ }
+set N6be6090 [stack 0]
+ Dot {
+  name Dot173
+  xpos -226
+  ypos 7818
+ }
+push $Ndbcdbb70
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform75
+  xpos -260
+  ypos 7671
+ }
+set N6be74d0 [stack 0]
+ Dot {
+  name Dot174
+  xpos -226
+  ypos 7722
+ }
+push $Ndbcda070
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform74
+  xpos -260
+  ypos 7575
+ }
+set N6be7830 [stack 0]
+ Dot {
+  name Dot175
+  xpos -226
+  ypos 7626
+ }
+push $Ndbcdb4b0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform73
+  xpos -260
+  ypos 7479
+ }
+set N6be7ef0 [stack 0]
+ Dot {
+  name Dot176
+  xpos -226
+  ypos 7530
+ }
+push $Ndbcdb810
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform72
+  xpos -260
+  ypos 7383
+ }
+set N6be7b90 [stack 0]
+ Dot {
+  name Dot177
+  xpos -226
+  ypos 7434
+ }
+push $Ndbcdaa90
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform71
+  xpos -260
+  ypos 7287
+ }
+set N6be99f0 [stack 0]
+ Dot {
+  name Dot178
+  xpos -226
+  ypos 7338
+ }
+push $Ndbcdadf0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform70
+  xpos -260
+  ypos 7191
+ }
+set N6be6750 [stack 0]
+ Dot {
+  name Dot179
+  xpos -226
+  ypos 7242
+ }
+push $Ndbcda3d0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform69
+  xpos -260
+  ypos 7095
+ }
+set N6be8c70 [stack 0]
+ Dot {
+  name Dot180
+  xpos -226
+  ypos 7146
+ }
+push $Ndbcdb150
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform68
+  xpos -260
+  ypos 6999
+ }
+set N6be9330 [stack 0]
+ Dot {
+  name Dot165
+  xpos -226
+  ypos 7050
+ }
+push $Ndbcda730
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform67
+  xpos -260
+  ypos 6903
+ }
+set N6be9690 [stack 0]
+ Dot {
+  name Dot166
+  xpos -226
+  ypos 6954
+ }
+push $N22edec00
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform66
+  xpos -260
+  ypos 6807
+ }
+set N6beaad0 [stack 0]
+ Dot {
+  name Dot167
+  xpos -226
+  ypos 6858
+ }
+push $N22edde80
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform65
+  xpos -260
+  ypos 6711
+ }
+set N6beae30 [stack 0]
+ Dot {
+  name Dot168
+  xpos -226
+  ypos 6762
+ }
+push $N22ede540
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform64
+  xpos -260
+  ypos 6615
+ }
+set N6bed350 [stack 0]
+ Dot {
+  name Dot169
+  xpos -226
+  ypos 6666
+ }
+push $N22eddb20
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform63
+  xpos -260
+  ypos 6519
+ }
+set N6bed6b0 [stack 0]
+ Dot {
+  name Dot170
+  xpos -226
+  ypos 6570
+ }
+push $N22ede1e0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform62
+  xpos -260
+  ypos 6423
+ }
+set N6beb4f0 [stack 0]
+ Dot {
+  name Dot171
+  xpos -226
+  ypos 6474
+ }
+push $N22edd7c0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform61
+  xpos -260
+  ypos 6327
+ }
+set N6beb850 [stack 0]
+ Dot {
+  name Dot172
+  xpos -226
+  ypos 6378
+ }
+push $N22ede8a0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform60
+  xpos -260
+  ypos 6231
+ }
+set N6bebf10 [stack 0]
+ Dot {
+  name Dot157
+  xpos -226
+  ypos 6282
+ }
+push $N22edd460
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform59
+  xpos -260
+  ypos 6135
+ }
+set N6bec5d0 [stack 0]
+ Dot {
+  name Dot158
+  xpos -226
+  ypos 6186
+ }
+push $N22edd100
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform58
+  xpos -260
+  ypos 6039
+ }
+set N707aaa0 [stack 0]
+ Dot {
+  name Dot159
+  xpos -226
+  ypos 6090
+ }
+push $N617eb00
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform57
+  xpos -260
+  ypos 5943
+ }
+set N707cc60 [stack 0]
+ Dot {
+  name Dot160
+  xpos -226
+  ypos 5994
+ }
+push $N617fbe0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform56
+  xpos -260
+  ypos 5847
+ }
+set N707b4c0 [stack 0]
+ Dot {
+  name Dot161
+  xpos -226
+  ypos 5898
+ }
+push $N617f880
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform55
+  xpos -260
+  ypos 5751
+ }
+set N707b820 [stack 0]
+ Dot {
+  name Dot162
+  xpos -226
+  ypos 5802
+ }
+push $N617e7a0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform54
+  xpos -260
+  ypos 5655
+ }
+set N707c900 [stack 0]
+ Dot {
+  name Dot163
+  xpos -226
+  ypos 5706
+ }
+push $N617e440
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform53
+  xpos -260
+  ypos 5559
+ }
+set N707c5a0 [stack 0]
+ Dot {
+  name Dot164
+  xpos -226
+  ypos 5610
+ }
+push $N617f1c0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform52
+  xpos -260
+  ypos 5463
+ }
+set N707d320 [stack 0]
+ Dot {
+  name Dot149
+  xpos -226
+  ypos 5514
+ }
+push $N617e0e0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform51
+  xpos -260
+  ypos 5367
+ }
+set N707d9e0 [stack 0]
+ Dot {
+  name Dot150
+  xpos -226
+  ypos 5418
+ }
+push $N617ee60
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform50
+  xpos -260
+  ypos 5271
+ }
+set N707a080 [stack 0]
+ Dot {
+  name Dot151
+  xpos -226
+  ypos 5322
+ }
+push $N617f520
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform49
+  xpos -260
+  ypos 5175
+ }
+set N707a3e0 [stack 0]
+ Dot {
+  name Dot152
+  xpos -226
+  ypos 5226
+ }
+push $Na1784c00
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform48
+  xpos -260
+  ypos 5079
+ }
+set N707a740 [stack 0]
+ Dot {
+  name Dot153
+  xpos -226
+  ypos 5130
+ }
+push $Na17848a0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform47
+  xpos -260
+  ypos 4983
+ }
+set N707eac0 [stack 0]
+ Dot {
+  name Dot154
+  xpos -226
+  ypos 5034
+ }
+push $Na1784540
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform46
+  xpos -260
+  ypos 4887
+ }
+set N707f840 [stack 0]
+ Dot {
+  name Dot155
+  xpos -226
+  ypos 4938
+ }
+push $Na1786040
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform45
+  xpos -260
+  ypos 4791
+ }
+set N707fba0 [stack 0]
+ Dot {
+  name Dot156
+  xpos -226
+  ypos 4842
+ }
+push $Na1785ce0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform44
+  xpos -260
+  ypos 4695
+ }
+set N707ff00 [stack 0]
+ Dot {
+  name Dot141
+  xpos -226
+  ypos 4746
+ }
+push $Na1785620
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform43
+  xpos -260
+  ypos 4599
+ }
+set N7080fe0 [stack 0]
+ Dot {
+  name Dot142
+  xpos -226
+  ypos 4650
+ }
+push $Na17852c0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform42
+  xpos -260
+  ypos 4503
+ }
+set N70805c0 [stack 0]
+ Dot {
+  name Dot143
+  xpos -226
+  ypos 4554
+ }
+push $Na1785980
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform41
+  xpos -260
+  ypos 4407
+ }
+set N7080c80 [stack 0]
+ Dot {
+  name Dot144
+  xpos -226
+  ypos 4458
+ }
+push $Na1784f60
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform40
+  xpos -260
+  ypos 4311
+ }
+set N7081a00 [stack 0]
+ Dot {
+  name Dot145
+  xpos -226
+  ypos 4362
+ }
+push $N8c6be680
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform39
+  xpos -260
+  ypos 4215
+ }
+set N71f3ec0 [stack 0]
+ Dot {
+  name Dot146
+  xpos -226
+  ypos 4266
+ }
+push $N8c6be320
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform38
+  xpos -260
+  ypos 4119
+ }
+set N71f3800 [stack 0]
+ Dot {
+  name Dot147
+  xpos -226
+  ypos 4170
+ }
+push $N8c6bdfc0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform37
+  xpos -260
+  ypos 4023
+ }
+set N71f3140 [stack 0]
+ Dot {
+  name Dot148
+  xpos -226
+  ypos 4074
+ }
+push $N8c6bcee0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform36
+  xpos -260
+  ypos 3927
+ }
+set N71f59c0 [stack 0]
+ Dot {
+  name Dot133
+  xpos -226
+  ypos 3978
+ }
+push $N8c6bd5a0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform35
+  xpos -260
+  ypos 3831
+ }
+set N71f2720 [stack 0]
+ Dot {
+  name Dot134
+  xpos -226
+  ypos 3882
+ }
+push $N8c6bd900
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform34
+  xpos -260
+  ypos 3735
+ }
+set N71f5d20 [stack 0]
+ Dot {
+  name Dot135
+  xpos -226
+  ypos 3786
+ }
+push $N8c6bdc60
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform33
+  xpos -260
+  ypos 3639
+ }
+set N71f6aa0 [stack 0]
+ Dot {
+  name Dot136
+  xpos -226
+  ypos 3690
+ }
+push $N8c6be9e0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform32
+  xpos -260
+  ypos 3543
+ }
+set N71f5300 [stack 0]
+ Dot {
+  name Dot137
+  xpos -226
+  ypos 3594
+ }
+push $N8c6bd240
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform31
+  xpos -260
+  ypos 3447
+ }
+set N71f2de0 [stack 0]
+ Dot {
+  name Dot138
+  xpos -226
+  ypos 3498
+ }
+push $N636a810
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform30
+  xpos -260
+  ypos 3351
+ }
+set N71f6080 [stack 0]
+ Dot {
+  name Dot139
+  xpos -226
+  ypos 3402
+ }
+push $N636a150
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform29
+  xpos -260
+  ypos 3255
+ }
+set N71f74c0 [stack 0]
+ Dot {
+  name Dot140
+  xpos -226
+  ypos 3306
+ }
+push $N6369df0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform28
+  xpos -260
+  ypos 3159
+ }
+set N71f6e00 [stack 0]
+ Dot {
+  name Dot125
+  xpos -226
+  ypos 3210
+ }
+push $N6369a90
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform27
+  xpos -260
+  ypos 3063
+ }
+set N71f7820 [stack 0]
+ Dot {
+  name Dot126
+  xpos -226
+  ypos 3114
+ }
+push $N63693d0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform26
+  xpos -260
+  ypos 2967
+ }
+set N71f7ee0 [stack 0]
+ Dot {
+  name Dot127
+  xpos -226
+  ypos 3018
+ }
+push $N6369070
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform25
+  xpos -260
+  ypos 2871
+ }
+set N71f7b80 [stack 0]
+ Dot {
+  name Dot128
+  xpos -226
+  ypos 2922
+ }
+push $N636a4b0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform24
+  xpos -260
+  ypos 2799
+ }
+set N71f99e0 [stack 0]
+ Dot {
+  name Dot129
+  xpos -226
+  ypos 2850
+ }
+push $N6369730
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform23
+  xpos -260
+  ypos 2703
+ }
+set N71f8c60 [stack 0]
+ Dot {
+  name Dot130
+  xpos -226
+  ypos 2754
+ }
+push $N636ab70
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform22
+  xpos -260
+  ypos 2607
+ }
+set N71f9320 [stack 0]
+ Dot {
+  name Dot131
+  xpos -226
+  ypos 2658
+ }
+push $N7f9f2f0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform21
+  xpos -260
+  ypos 2511
+ }
+set N7393660 [stack 0]
+ Dot {
+  name Dot132
+  xpos -226
+  ypos 2562
+ }
+push $N7f9ef90
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform20
+  xpos -260
+  ypos 2415
+ }
+set N73928e0 [stack 0]
+ Dot {
+  name Dot117
+  xpos -226
+  ypos 2466
+ }
+push $N7f9ec30
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform19
+  xpos -260
+  ypos 2319
+ }
+set N73903c0 [stack 0]
+ Dot {
+  name Dot118
+  xpos -226
+  ypos 2370
+ }
+push $N7f9e8d0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform18
+  xpos -260
+  ypos 2223
+ }
+set N7391b60 [stack 0]
+ Dot {
+  name Dot119
+  xpos -226
+  ypos 2274
+ }
+push $N7f9e210
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform17
+  xpos -260
+  ypos 2127
+ }
+set N73914a0 [stack 0]
+ Dot {
+  name Dot120
+  xpos -226
+  ypos 2178
+ }
+push $N7f9deb0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform16
+  xpos -260
+  ypos 2031
+ }
+set N7392fa0 [stack 0]
+ Dot {
+  name Dot121
+  xpos -226
+  ypos 2082
+ }
+push $N7f9db50
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform15
+  xpos -260
+  ypos 1935
+ }
+set N7392c40 [stack 0]
+ Dot {
+  name Dot122
+  xpos -226
+  ypos 1986
+ }
+push $N7f9f650
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform14
+  xpos -260
+  ypos 1839
+ }
+set N7391140 [stack 0]
+ Dot {
+  name Dot123
+  xpos -226
+  ypos 1890
+ }
+push $N7f9e570
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform13
+  xpos -260
+  ypos 1743
+ }
+set N73939c0 [stack 0]
+ Dot {
+  name Dot124
+  xpos -226
+  ypos 1794
+ }
+push $N8114770
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform12
+  xpos -260
+  ypos 1647
+ }
+set N7390060 [stack 0]
+ Dot {
+  name Dot113
+  xpos -226
+  ypos 1698
+ }
+push $N81140b0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform11
+  xpos -260
+  ypos 1551
+ }
+set N73954c0 [stack 0]
+ Dot {
+  name Dot114
+  xpos -226
+  ypos 1602
+ }
+push $N8114410
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform10
+  xpos -260
+  ypos 1455
+ }
+set N73979e0 [stack 0]
+ Dot {
+  name Dot115
+  xpos -226
+  ypos 1506
+ }
+push $N8113d50
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform9
+  xpos -260
+  ypos 1359
+ }
+set N7396900 [stack 0]
+ Dot {
+  name Dot116
+  xpos -226
+  ypos 1410
+ }
+push $N8113690
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform8
+  xpos -260
+  ypos 1287
+ }
+set N7396c60 [stack 0]
+ Dot {
+  name Dot109
+  xpos -226
+  ypos 1338
+ }
+push $N8114ad0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform7
+  xpos -260
+  ypos 1191
+ }
+set N73943e0 [stack 0]
+ Dot {
+  name Dot110
+  xpos -226
+  ypos 1242
+ }
+push $N81139f0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform6
+  xpos -260
+  ypos 1095
+ }
+set N7395820 [stack 0]
+ Dot {
+  name Dot111
+  xpos -226
+  ypos 1146
+ }
+push $N8113330
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform5
+  xpos -260
+  ypos 999
+ }
+set N7396fc0 [stack 0]
+ Dot {
+  name Dot112
+  xpos -226
+  ypos 1050
+ }
+push $N8112fd0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform4
+  xpos -260
+  ypos 927
+ }
+set N73965a0 [stack 0]
+ Dot {
+  name Dot107
+  xpos -226
+  ypos 978
+ }
+push $N9dea0a20
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform3
+  xpos -260
+  ypos 831
+ }
+set N7395ee0 [stack 0]
+ Dot {
+  name Dot108
+  xpos -226
+  ypos 882
+ }
+push $N9dea1440
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform2
+  xpos -260
+  ypos 735
+ }
+set N74bf380 [stack 0]
+ Dot {
+  name Dot106
+  xpos -226
+  ypos 786
+ }
+push $N9de9fca0
+ Transform {
+  translate {{"\[python ((nuke.toNode('Direction').knob('fillpt').value(0)-\\ nuke.thisNode().knob('center').value(0))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"} {"\[python ((nuke.toNode('Direction').knob('fillpt').value(1)-\\ nuke.thisNode().knob('center').value(1))/(nuke.toNode('Switch1').knob('which').value()))*int(nuke.thisNode().knob('name').value()\\\[9:\\])]"}}
+  center {{Center.x} {Center.y}}
+  shutteroffset centred
+  name Transform1
+  xpos -260
+  ypos 639
+ }
+set N74bf020 [stack 0]
+ Dot {
+  name Dot105
+  xpos -226
+  ypos 690
+ }
+push $N9dea10e0
+ Dot {
+  name Dot104
+  xpos -446
+  ypos 546
+ }
+set N74bdf40 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge101
+  xpos -480
+  ypos 687
+  disable {{parent.BlurOff}}
+ }
+set N74bf6e0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge102
+  xpos -480
+  ypos 783
+  disable {{parent.BlurOff}}
+ }
+set N74be960 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge103
+  xpos -480
+  ypos 879
+  disable {{parent.BlurOff}}
+ }
+set N74bfa40 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge104
+  xpos -480
+  ypos 975
+  disable {{parent.BlurOff}}
+ }
+set N74be2a0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge105
+  xpos -480
+  ypos 1047
+  disable {{parent.BlurOff}}
+ }
+set N74bd520 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge106
+  xpos -480
+  ypos 1143
+  disable {{parent.BlurOff}}
+ }
+set N74bce60 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge107
+  xpos -480
+  ypos 1239
+  disable {{parent.BlurOff}}
+ }
+set N74be600 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge108
+  xpos -480
+  ypos 1335
+  disable {{parent.BlurOff}}
+ }
+set N74becc0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge109
+  xpos -480
+  ypos 1407
+  disable {{parent.BlurOff}}
+ }
+set N74bfda0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge110
+  xpos -480
+  ypos 1503
+  disable {{parent.BlurOff}}
+ }
+set N74bc0e0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge111
+  xpos -480
+  ypos 1599
+  disable {{parent.BlurOff}}
+ }
+set N74c0100 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge112
+  xpos -480
+  ypos 1695
+  disable {{parent.BlurOff}}
+ }
+set N74bc440 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge113
+  xpos -480
+  ypos 1791
+  disable {{parent.BlurOff}}
+ }
+set N74c0460 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge114
+  xpos -480
+  ypos 1887
+  disable {{parent.BlurOff}}
+ }
+set N74c07c0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge115
+  xpos -480
+  ypos 1983
+  disable {{parent.BlurOff}}
+ }
+set N74bcb00 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge116
+  xpos -480
+  ypos 2079
+  disable {{parent.BlurOff}}
+ }
+set N74c0b20 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge117
+  xpos -480
+  ypos 2175
+  disable {{parent.BlurOff}}
+ }
+set N74c0e80 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge118
+  xpos -480
+  ypos 2271
+  disable {{parent.BlurOff}}
+ }
+set N74bd1c0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge119
+  xpos -480
+  ypos 2367
+  disable {{parent.BlurOff}}
+ }
+set N74c1540 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge120
+  xpos -480
+  ypos 2463
+  disable {{parent.BlurOff}}
+ }
+set N74c2ce0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge121
+  xpos -480
+  ypos 2559
+  disable {{parent.BlurOff}}
+ }
+set N74c1f60 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge122
+  xpos -480
+  ypos 2655
+  disable {{parent.BlurOff}}
+ }
+set N74c18a0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge123
+  xpos -480
+  ypos 2751
+  disable {{parent.BlurOff}}
+ }
+set N74c1c00 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge124
+  xpos -480
+  ypos 2847
+  disable {{parent.BlurOff}}
+ }
+set N74c22c0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge125
+  xpos -480
+  ypos 2919
+  disable {{parent.BlurOff}}
+ }
+set N74c11e0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge126
+  xpos -480
+  ypos 3015
+  disable {{parent.BlurOff}}
+ }
+set N74c3040 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge127
+  xpos -480
+  ypos 3111
+  disable {{parent.BlurOff}}
+ }
+set N74c58c0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge128
+  xpos -480
+  ypos 3207
+  disable {{parent.BlurOff}}
+ }
+set N74c33a0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge129
+  xpos -480
+  ypos 3303
+  disable {{parent.BlurOff}}
+ }
+set N74c3700 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge130
+  xpos -480
+  ypos 3399
+  disable {{parent.BlurOff}}
+ }
+set N74c4120 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge131
+  xpos -480
+  ypos 3495
+  disable {{parent.BlurOff}}
+ }
+set N74c3a60 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge132
+  xpos -480
+  ypos 3591
+  disable {{parent.BlurOff}}
+ }
+set N74c4ea0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge133
+  xpos -480
+  ypos 3687
+  disable {{parent.BlurOff}}
+ }
+set N74c4b40 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge134
+  xpos -480
+  ypos 3783
+  disable {{parent.BlurOff}}
+ }
+set N74c3dc0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge135
+  xpos -480
+  ypos 3879
+  disable {{parent.BlurOff}}
+ }
+set N74c4480 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge136
+  xpos -480
+  ypos 3975
+  disable {{parent.BlurOff}}
+ }
+set N74c47e0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge137
+  xpos -480
+  ypos 4071
+  disable {{parent.BlurOff}}
+ }
+set N74c5200 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge138
+  xpos -480
+  ypos 4167
+  disable {{parent.BlurOff}}
+ }
+set N74c5560 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge139
+  xpos -480
+  ypos 4263
+  disable {{parent.BlurOff}}
+ }
+set N74c5c20 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge140
+  xpos -480
+  ypos 4359
+  disable {{parent.BlurOff}}
+ }
+set N74c5f80 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge141
+  xpos -480
+  ypos 4455
+  disable {{parent.BlurOff}}
+ }
+set N74c62e0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge142
+  xpos -480
+  ypos 4551
+  disable {{parent.BlurOff}}
+ }
+set N74c2620 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge143
+  xpos -480
+  ypos 4647
+  disable {{parent.BlurOff}}
+ }
+set N74c6640 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge144
+  xpos -480
+  ypos 4743
+  disable {{parent.BlurOff}}
+ }
+set N74c2980 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge145
+  xpos -480
+  ypos 4839
+  disable {{parent.BlurOff}}
+ }
+set N74c7060 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge146
+  xpos -480
+  ypos 4935
+  disable {{parent.BlurOff}}
+ }
+set N74c7de0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge147
+  xpos -480
+  ypos 5031
+  disable {{parent.BlurOff}}
+ }
+set N74c8140 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge148
+  xpos -480
+  ypos 5127
+  disable {{parent.BlurOff}}
+ }
+set N74c84a0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge149
+  xpos -480
+  ypos 5223
+  disable {{parent.BlurOff}}
+ }
+set N74c9220 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge150
+  xpos -480
+  ypos 5319
+  disable {{parent.BlurOff}}
+ }
+set N74c8800 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge151
+  xpos -480
+  ypos 5415
+  disable {{parent.BlurOff}}
+ }
+set N74c8b60 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge152
+  xpos -480
+  ypos 5511
+  disable {{parent.BlurOff}}
+ }
+set N74c73c0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge153
+  xpos -480
+  ypos 5607
+  disable {{parent.BlurOff}}
+ }
+set N74c7720 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge154
+  xpos -480
+  ypos 5703
+  disable {{parent.BlurOff}}
+ }
+set N74c69a0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge155
+  xpos -480
+  ypos 5799
+  disable {{parent.BlurOff}}
+ }
+set N74c8ec0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge156
+  xpos -480
+  ypos 5895
+  disable {{parent.BlurOff}}
+ }
+set N74c9580 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge157
+  xpos -480
+  ypos 5991
+  disable {{parent.BlurOff}}
+ }
+set N74c6d00 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge158
+  xpos -480
+  ypos 6087
+  disable {{parent.BlurOff}}
+ }
+set N74c7a80 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge159
+  xpos -480
+  ypos 6183
+  disable {{parent.BlurOff}}
+ }
+set N74ca300 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge160
+  xpos -480
+  ypos 6279
+  disable {{parent.BlurOff}}
+ }
+set N74ca660 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge161
+  xpos -480
+  ypos 6375
+  disable {{parent.BlurOff}}
+ }
+set N74ca9c0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge162
+  xpos -480
+  ypos 6471
+  disable {{parent.BlurOff}}
+ }
+set N74c98e0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge163
+  xpos -480
+  ypos 6567
+  disable {{parent.BlurOff}}
+ }
+set N74cad20 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge164
+  xpos -480
+  ypos 6663
+  disable {{parent.BlurOff}}
+ }
+set N74cbaa0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge165
+  xpos -480
+  ypos 6759
+  disable {{parent.BlurOff}}
+ }
+set N74c9c40 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge166
+  xpos -480
+  ypos 6855
+  disable {{parent.BlurOff}}
+ }
+set N74c9fa0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge167
+  xpos -480
+  ypos 6951
+  disable {{parent.BlurOff}}
+ }
+set N74cb080 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge168
+  xpos -480
+  ypos 7047
+  disable {{parent.BlurOff}}
+ }
+set N74cb3e0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge169
+  xpos -480
+  ypos 7143
+  disable {{parent.BlurOff}}
+ }
+set N74cb740 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge170
+  xpos -480
+  ypos 7239
+  disable {{parent.BlurOff}}
+ }
+set N798ba70 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge171
+  xpos -480
+  ypos 7335
+  disable {{parent.BlurOff}}
+ }
+set N798b710 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge172
+  xpos -480
+  ypos 7431
+  disable {{parent.BlurOff}}
+ }
+set N798a630 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge173
+  xpos -480
+  ypos 7527
+  disable {{parent.BlurOff}}
+ }
+set N79898b0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge174
+  xpos -480
+  ypos 7623
+  disable {{parent.BlurOff}}
+ }
+set N7989c10 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge175
+  xpos -480
+  ypos 7719
+  disable {{parent.BlurOff}}
+ }
+set N7989f70 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge176
+  xpos -480
+  ypos 7815
+  disable {{parent.BlurOff}}
+ }
+set N798a2d0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge177
+  xpos -480
+  ypos 7911
+  disable {{parent.BlurOff}}
+ }
+set N798a990 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge178
+  xpos -480
+  ypos 8007
+  disable {{parent.BlurOff}}
+ }
+set N798b3b0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge179
+  xpos -480
+  ypos 8103
+  disable {{parent.BlurOff}}
+ }
+set N798acf0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge180
+  xpos -480
+  ypos 8199
+  disable {{parent.BlurOff}}
+ }
+set N798b050 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge181
+  xpos -480
+  ypos 8295
+  disable {{parent.BlurOff}}
+ }
+set N797c770 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge182
+  xpos -480
+  ypos 8391
+  disable {{parent.BlurOff}}
+ }
+set N797cad0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge183
+  xpos -480
+  ypos 8487
+  disable {{parent.BlurOff}}
+ }
+set N797d4f0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge184
+  xpos -480
+  ypos 8583
+  disable {{parent.BlurOff}}
+ }
+set N797d190 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge185
+  xpos -480
+  ypos 8679
+  disable {{parent.BlurOff}}
+ }
+set N797e270 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge186
+  xpos -480
+  ypos 8775
+  disable {{parent.BlurOff}}
+ }
+set N797fd70 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge187
+  xpos -480
+  ypos 8871
+  disable {{parent.BlurOff}}
+ }
+set N797e930 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge188
+  xpos -480
+  ypos 8967
+  disable {{parent.BlurOff}}
+ }
+set N797e5d0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge189
+  xpos -480
+  ypos 9063
+  disable {{parent.BlurOff}}
+ }
+set N797c0b0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge190
+  xpos -480
+  ypos 9159
+  disable {{parent.BlurOff}}
+ }
+set N797ec90 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge191
+  xpos -480
+  ypos 9255
+  disable {{parent.BlurOff}}
+ }
+set N797d850 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge192
+  xpos -480
+  ypos 9351
+  disable {{parent.BlurOff}}
+ }
+set N797dbb0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge193
+  xpos -480
+  ypos 9447
+  disable {{parent.BlurOff}}
+ }
+set N797fa10 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge194
+  xpos -480
+  ypos 9543
+  disable {{parent.BlurOff}}
+ }
+set N797eff0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge195
+  xpos -480
+  ypos 9639
+  disable {{parent.BlurOff}}
+ }
+set N797f350 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge196
+  xpos -480
+  ypos 9735
+  disable {{parent.BlurOff}}
+ }
+set N79800d0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge197
+  xpos -480
+  ypos 9831
+  disable {{parent.BlurOff}}
+ }
+set N797f6b0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge198
+  xpos -480
+  ypos 9927
+  disable {{parent.BlurOff}}
+ }
+set N797c410 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge199
+  xpos -480
+  ypos 10023
+  disable {{parent.BlurOff}}
+ }
+set N797df10 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge200
+  xpos -480
+  ypos 10119
+  disable {{parent.BlurOff}}
+ }
+push $N797df10
+push $N797c410
+push $N797f6b0
+push $N79800d0
+push $N797f350
+push $N797eff0
+push $N797fa10
+push $N797dbb0
+push $N797d850
+push $N797ec90
+push $N797c0b0
+push $N797e5d0
+push $N797e930
+push $N797fd70
+push $N797e270
+push $N797d190
+push $N797d4f0
+push $N797cad0
+push $N797c770
+push $N798b050
+push $N798acf0
+push $N798b3b0
+push $N798a990
+push $N798a2d0
+push $N7989f70
+push $N7989c10
+push $N79898b0
+push $N798a630
+push $N798b710
+push $N798ba70
+push $N74cb740
+push $N74cb3e0
+push $N74cb080
+push $N74c9fa0
+push $N74c9c40
+push $N74cbaa0
+push $N74cad20
+push $N74c98e0
+push $N74ca9c0
+push $N74ca660
+push $N74ca300
+push $N74c7a80
+push $N74c6d00
+push $N74c9580
+push $N74c8ec0
+push $N74c69a0
+push $N74c7720
+push $N74c73c0
+push $N74c8b60
+push $N74c8800
+push $N74c9220
+push $N74c84a0
+push $N74c8140
+push $N74c7de0
+push $N74c7060
+push $N74c2980
+push $N74c6640
+push $N74c2620
+push $N74c62e0
+push $N74c5f80
+push $N74c5c20
+push $N74c5560
+push $N74c5200
+push $N74c47e0
+push $N74c4480
+push $N74c3dc0
+push $N74c4b40
+push $N74c4ea0
+push $N74c3a60
+push $N74c4120
+push $N74c3700
+push $N74c33a0
+push $N74c58c0
+push $N74c3040
+push $N74c11e0
+push $N74c22c0
+push $N74c1c00
+push $N74c18a0
+push $N74c1f60
+push $N74c2ce0
+push $N74c1540
+push $N74bd1c0
+push $N74c0e80
+push $N74c0b20
+push $N74bcb00
+push $N74c07c0
+push $N74c0460
+push $N74bc440
+push $N74c0100
+push $N74bc0e0
+push $N74bfda0
+push $N74becc0
+push $N74be600
+push $N74bce60
+push $N74bd520
+push $N74be2a0
+push $N74bfa40
+push $N74be960
+push $N74bf6e0
+push $N74bdf40
+ Switch {
+  inputs 101
+  which {{parent.Resolution-1}}
+  name Switch2
+  label "\[value which]"
+  xpos -590
+  ypos 537
+  disable {{parent.BlurOff}}
+ }
+ Dot {
+  name Dot205
+  xpos -556
+  ypos 402
+ }
+ Dot {
+  name Dot206
+  xpos 104
+  ypos 402
+ }
+push $N893c3f0
+push $N893cab0
+push $N893d830
+push $N893c3f0
+push $N893f330
+push $N893d830
+push $N893ec70
+push $N893f330
+push $N893f9f0
+push $N893ec70
+push $N650c720
+push $N893f9f0
+push $N650cde0
+push $N650c720
+push $N650c060
+push $N650cde0
+push $N650dec0
+push $N650c060
+push $N650b9a0
+push $N650dec0
+push $N650d800
+push $N650b9a0
+push $N650af80
+push $N650d800
+push $N650b2e0
+push $N650af80
+push $N650bd00
+push $N650b2e0
+push $Nab8c850
+push $N650bd00
+push $Nab8d270
+push $Nab8c850
+push $Nab8ea10
+push $Nab8d270
+push $Nab8c4f0
+push $Nab8ea10
+push $Nab8cf10
+push $Nab8c4f0
+push $Nab8dc90
+push $Nab8cf10
+push $Nab8f790
+push $Nab8dc90
+push $Nab8f0d0
+push $Nab8f790
+push $Nab8f430
+push $Nab8f0d0
+push $N6be6090
+push $Nab8f430
+push $N6be74d0
+push $N6be6090
+push $N6be7830
+push $N6be74d0
+push $N6be7ef0
+push $N6be7830
+push $N6be7b90
+push $N6be7ef0
+push $N6be99f0
+push $N6be7b90
+push $N6be6750
+push $N6be99f0
+push $N6be8c70
+push $N6be6750
+push $N6be9330
+push $N6be8c70
+push $N6be9690
+push $N6be9330
+push $N6beaad0
+push $N6be9690
+push $N6beae30
+push $N6beaad0
+push $N6bed350
+push $N6beae30
+push $N6bed6b0
+push $N6bed350
+push $N6beb4f0
+push $N6bed6b0
+push $N6beb850
+push $N6beb4f0
+push $N6bebf10
+push $N6beb850
+push $N6bec5d0
+push $N6bebf10
+push $N707aaa0
+push $N6bec5d0
+push $N707cc60
+push $N707aaa0
+push $N707b4c0
+push $N707cc60
+push $N707b820
+push $N707b4c0
+push $N707c900
+push $N707b820
+push $N707c5a0
+push $N707c900
+push $N707d320
+push $N707c5a0
+push $N707d9e0
+push $N707d320
+push $N707a080
+push $N707d9e0
+push $N707a3e0
+push $N707a080
+push $N707a740
+push $N707a3e0
+push $N707eac0
+push $N707a740
+push $N707f840
+push $N707eac0
+push $N707fba0
+push $N707f840
+push $N707ff00
+push $N707fba0
+push $N7080fe0
+push $N707ff00
+push $N70805c0
+push $N7080fe0
+push $N7080c80
+push $N70805c0
+push $N7081a00
+push $N7080c80
+push $N71f3ec0
+push $N7081a00
+push $N71f3800
+push $N71f3ec0
+push $N71f3140
+push $N71f3800
+push $N71f59c0
+push $N71f3140
+push $N71f2720
+push $N71f59c0
+push $N71f5d20
+push $N71f2720
+push $N71f6aa0
+push $N71f5d20
+push $N71f5300
+push $N71f6aa0
+push $N71f2de0
+push $N71f5300
+push $N71f6080
+push $N71f2de0
+push $N71f74c0
+push $N71f6080
+push $N71f6e00
+push $N71f74c0
+push $N71f7820
+push $N71f6e00
+push $N71f7ee0
+push $N71f7820
+push $N71f7b80
+push $N71f7ee0
+push $N71f99e0
+push $N71f7b80
+push $N71f8c60
+push $N71f99e0
+push $N71f9320
+push $N71f8c60
+push $N7393660
+push $N71f9320
+push $N73928e0
+push $N7393660
+push $N73903c0
+push $N73928e0
+push $N7391b60
+push $N73903c0
+push $N73914a0
+push $N7391b60
+push $N7392fa0
+push $N73914a0
+push $N7392c40
+push $N7392fa0
+push $N7391140
+push $N7392c40
+push $N73939c0
+push $N7391140
+push $N7390060
+push $N73939c0
+push $N73954c0
+push $N7390060
+push $N73979e0
+push $N73954c0
+push $N7396900
+push $N73979e0
+push $N7396c60
+push $N7396900
+push $N73943e0
+push $N7396c60
+push $N7395820
+push $N73943e0
+push $N7396fc0
+push $N7395820
+push $N73965a0
+push $N7396fc0
+push $N7395ee0
+push $N73965a0
+push $N74bf380
+push $N7395ee0
+push $N74bf020
+push $N74bf380
+push $N9dea0d80
+push $N74bf020
+push $N9dea06c0
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge1
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 633
+ }
+set N797ce30 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge2
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 729
+ }
+set N79840f0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge3
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 825
+ }
+set N79836d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge4
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 921
+ }
+set N7982290 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge5
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 993
+ }
+set N7984b10 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge6
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1089
+ }
+set N7982950 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge7
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1185
+ }
+set N7983370 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge8
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1281
+ }
+set N7981f30 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge9
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1353
+ }
+set N7984450 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge10
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1449
+ }
+set N7983d90 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge11
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1545
+ }
+set N79825f0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge12
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1641
+ }
+set N7980e50 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge13
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1737
+ }
+set N79847b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge14
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1833
+ }
+set N79811b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge15
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 1929
+ }
+set N79851d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge16
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2025
+ }
+set N7981510 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge17
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2121
+ }
+set N7981bd0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge18
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2217
+ }
+set N7983a30 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge19
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2313
+ }
+set N7984e70 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge20
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2409
+ }
+set N7985530 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge21
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2505
+ }
+set N7981870 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge22
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2601
+ }
+set N7985890 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge23
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2697
+ }
+set N7985bf0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge24
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2793
+ }
+set N7985f50 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge25
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2865
+ }
+set N7986970 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge26
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 2961
+ }
+set N79862b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge27
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3057
+ }
+set N7986610 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge28
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3153
+ }
+set N7982cb0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge29
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3249
+ }
+set N7986cd0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge30
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3345
+ }
+set N7983010 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge31
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3441
+ }
+set N7987030 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge32
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3537
+ }
+set N7987390 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge33
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3633
+ }
+set N79887d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge34
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3729
+ }
+set N7987db0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge35
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3825
+ }
+set N79876f0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge36
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 3921
+ }
+set N7987a50 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge37
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4017
+ }
+set N7988110 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge38
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4113
+ }
+set N7988470 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge39
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4209
+ }
+set N7988b30 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge40
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4305
+ }
+set N7988e90 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge41
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4401
+ }
+set N7989550 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge42
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4497
+ }
+set N79891f0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge43
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4593
+ }
+set Nedd5b90 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge44
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4689
+ }
+set Nedd65b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge45
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4785
+ }
+set Nedd4750 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge46
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4881
+ }
+set Nedd54d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge47
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 4977
+ }
+set Nedd79f0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge48
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5073
+ }
+set Nedd6910 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge49
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5169
+ }
+set Nedd7330 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge50
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5265
+ }
+set Nedd7d50 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge51
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5361
+ }
+set Nedd6c70 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge52
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5457
+ }
+set Nedd4e10 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge53
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5553
+ }
+set Nedd6fd0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge54
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5649
+ }
+set Nedd7690 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge55
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5745
+ }
+set Nedd4090 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge56
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5841
+ }
+set Nedd80b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge57
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 5937
+ }
+set Nedd5830 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge58
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6033
+ }
+set Nedd5170 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge59
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6129
+ }
+set Nedd5ef0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge60
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6225
+ }
+set Nedd43f0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge61
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6321
+ }
+set Nedd8770 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge62
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6417
+ }
+set Nedd8410 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge63
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6513
+ }
+set Nedd6250 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge64
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6609
+ }
+set Nedd4ab0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge65
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6705
+ }
+set Neddc0d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge66
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6801
+ }
+set Neddc430 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge67
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6897
+ }
+set Neddba10 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge68
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 6993
+ }
+set Neddc790 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge69
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7089
+ }
+set Nedd8ad0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge70
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7185
+ }
+set Neddcaf0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge71
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7281
+ }
+set Nedda270 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge72
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7377
+ }
+set Nedd9f10 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge73
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7473
+ }
+set Neddaff0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge74
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7569
+ }
+set Nedda930 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge75
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7665
+ }
+set Nedd8e30 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge76
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7761
+ }
+set Neddce50 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge77
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7857
+ }
+set Nedd9850 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge78
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 7953
+ }
+set Nedd94f0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge79
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8049
+ }
+set Neddbd70 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge80
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8145
+ }
+set Nedd9190 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge81
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8241
+ }
+set Neddac90 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge82
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8337
+ }
+set Nedd9bb0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge83
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8433
+ }
+set Neddd1b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge84
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8529
+ }
+set Neddb6b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge85
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8625
+ }
+set Neddd510 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge86
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8721
+ }
+set Neddb350 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge87
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8817
+ }
+set Nedde290 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge88
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 8913
+ }
+set Nedda5d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge89
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9009
+ }
+set Nede11d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge90
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9105
+ }
+set Nede0e70 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge91
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9201
+ }
+set Nede1530 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge92
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9297
+ }
+set Nedde950 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge93
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9393
+ }
+set Neddd870 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge94
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9489
+ }
+set Neddf6d0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge95
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9585
+ }
+set Neddecb0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge96
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9681
+ }
+set Nedddf30 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge97
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9777
+ }
+set Neddfd90 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge98
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9873
+ }
+set Nede07b0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge99
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 9969
+ }
+set Nede0b10 [stack 0]
+ Merge2 {
+  inputs 2+1
+  operation plus
+  invert_mask true
+  mix {{"\[python 0.01*(100 - (int(nuke.thisNode().knob('name').value()\\\[5:\\])*(100/nuke.toNode('Switch1').knob('which').value())))]"}}
+  name Merge100
+  label "\[expr \[value mix]*100]%"
+  xpos -150
+  ypos 10065
+ }
+push $Nede0b10
+push $Nede07b0
+push $Neddfd90
+push $Nedddf30
+push $Neddecb0
+push $Neddf6d0
+push $Neddd870
+push $Nedde950
+push $Nede1530
+push $Nede0e70
+push $Nede11d0
+push $Nedda5d0
+push $Nedde290
+push $Neddb350
+push $Neddd510
+push $Neddb6b0
+push $Neddd1b0
+push $Nedd9bb0
+push $Neddac90
+push $Nedd9190
+push $Neddbd70
+push $Nedd94f0
+push $Nedd9850
+push $Neddce50
+push $Nedd8e30
+push $Nedda930
+push $Neddaff0
+push $Nedd9f10
+push $Nedda270
+push $Neddcaf0
+push $Nedd8ad0
+push $Neddc790
+push $Neddba10
+push $Neddc430
+push $Neddc0d0
+push $Nedd4ab0
+push $Nedd6250
+push $Nedd8410
+push $Nedd8770
+push $Nedd43f0
+push $Nedd5ef0
+push $Nedd5170
+push $Nedd5830
+push $Nedd80b0
+push $Nedd4090
+push $Nedd7690
+push $Nedd6fd0
+push $Nedd4e10
+push $Nedd6c70
+push $Nedd7d50
+push $Nedd7330
+push $Nedd6910
+push $Nedd79f0
+push $Nedd54d0
+push $Nedd4750
+push $Nedd65b0
+push $Nedd5b90
+push $N79891f0
+push $N7989550
+push $N7988e90
+push $N7988b30
+push $N7988470
+push $N7988110
+push $N7987a50
+push $N79876f0
+push $N7987db0
+push $N79887d0
+push $N7987390
+push $N7987030
+push $N7983010
+push $N7986cd0
+push $N7982cb0
+push $N7986610
+push $N79862b0
+push $N7986970
+push $N7985f50
+push $N7985bf0
+push $N7985890
+push $N7981870
+push $N7985530
+push $N7984e70
+push $N7983a30
+push $N7981bd0
+push $N7981510
+push $N79851d0
+push $N79811b0
+push $N79847b0
+push $N7980e50
+push $N79825f0
+push $N7983d90
+push $N7984450
+push $N7981f30
+push $N7983370
+push $N7982950
+push $N7984b10
+push $N7982290
+push $N79836d0
+push $N79840f0
+push $N797ce30
+push $N9dea06c0
+ Switch {
+  inputs 101
+  which {{parent.Resolution}}
+  name Switch1
+  label "\[value which]"
+  xpos -40
+  ypos 537
+ }
+set N6a513eb0 [stack 0]
+ Blur {
+  inputs 1+1
+  size 10
+  name Blur1
+  xpos 70
+  ypos 537
+  disable {{parent.BlurOff}}
+ }
+set Neddf010 [stack 0]
+ Output {
+  name Output1
+  xpos 290
+  ypos 543
+ }
+push $N7392fa0
+push $N9dea10e0
+push $N6a513eb0
+push $N6a513eb0
+push $Neddf010
+push 0
+ Viewer {
+  inputs 6
+  input_process false
+  name Viewer1
+  xpos 180
+  ypos 927
+ }
+ FloodFill {
+  inputs 0
+  name Direction
+  xpos 70
+  ypos 639
+ }
+end_group
